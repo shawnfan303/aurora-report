@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>震旦家具輿情監測 | 2026-06-12</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --ink: #1d2733;
+      --muted: #5f6b7a;
+      --line: #d9e0e7;
+      --accent: #0f6cbd;
+      --accent-2: #107c41;
+      --warn: #b35c00;
+      --risk: #b42318;
+      --calm: #355d8c;
+      --shadow: 0 1px 2px rgba(18, 32, 47, .08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    header {
+      background: #253242;
+      color: #fff;
+      padding: 28px clamp(18px, 4vw, 44px) 22px;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .eyebrow {
+      color: #c8d7e8;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 0 0 10px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      max-width: 980px;
+      color: #eef4fb;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    main {
+      width: min(1280px, calc(100% - 32px));
+      margin: 20px auto 44px;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .metric, section, .note {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 6px;
+    }
+
+    .metric {
+      padding: 14px 16px;
+      min-height: 116px;
+    }
+
+    .metric .label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .metric .value {
+      font-size: 28px;
+      font-weight: 750;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 7px;
+    }
+
+    .metric .text {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    nav {
+      position: sticky;
+      top: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+      padding: 10px;
+    }
+
+    nav a {
+      display: block;
+      color: #263646;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover { background: #edf3f8; color: var(--accent); }
+
+    .content {
+      display: grid;
+      gap: 16px;
+    }
+
+    section {
+      padding: 20px;
+      scroll-margin-top: 16px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.25;
+      color: #14202c;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+      color: #243649;
+    }
+
+    p { margin: 8px 0; }
+    ul { margin: 8px 0 0 20px; padding: 0; }
+    li { margin: 6px 0; }
+    strong { font-weight: 750; }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .status {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      padding: 10px 12px;
+      background: #fbfdff;
+    }
+
+    .status.warn { border-left-color: var(--warn); }
+    .status.good { border-left-color: var(--accent-2); }
+    .status.risk { border-left-color: var(--risk); }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 750;
+      color: #fff;
+      background: var(--accent);
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: 1px;
+    }
+
+    .tag.green { background: var(--accent-2); }
+    .tag.warn { background: var(--warn); }
+    .tag.risk { background: var(--risk); }
+    .tag.gray { background: #657383; }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .table th, .table td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .table th {
+      background: #edf2f7;
+      font-weight: 750;
+      color: #203244;
+      white-space: nowrap;
+    }
+
+    .competitor {
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+
+    .competitor-title {
+      background: #edf2f7;
+      padding: 10px 12px;
+      font-weight: 800;
+      color: #14202c;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .competitor-body {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .cell {
+      padding: 11px 12px;
+      border-right: 1px solid var(--line);
+      min-height: 110px;
+    }
+
+    .cell:last-child { border-right: 0; }
+    .cell b {
+      display: block;
+      color: var(--calm);
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-list a { color: var(--accent); }
+
+    footer {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .top-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .layout { grid-template-columns: 1fr; }
+      nav { position: static; }
+      .competitor-body { grid-template-columns: 1fr 1fr; }
+      .cell { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 640px) {
+      main { width: min(100% - 20px, 1280px); }
+      header { padding-left: 18px; padding-right: 18px; }
+      .top-grid, .status-row, .competitor-body { grid-template-columns: 1fr; }
+      .cell { border-right: 0; }
+      .table { font-size: 13px; }
+      .table th, .table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Daily Reputation Signals and Competitor Intelligence</div>
+    <h1>震旦家具輿情監測網站</h1>
+    <p class="subtitle">監測日：2026-06-12。呈現方式採 Power BI 式資訊架構，但全站維持純文字輸出，不使用圖表、儀表板視覺或資料視覺化元件。</p>
+  </header>
+
+  <main>
+    <div class="top-grid" aria-label="文字型摘要指標">
+      <div class="metric">
+        <div class="label">品牌風險等級</div>
+        <div class="value">Level 1</div>
+        <p class="text">未見明確中高風險公開訊號；仍需追蹤客訴、工程交付與 ESG 議題。</p>
+      </div>
+      <div class="metric">
+        <div class="label">今日競品活躍度</div>
+        <div class="value">偏高</div>
+        <p class="text">國際品牌以人體工學、低碳材料、產品更新與空間策略搶聲量。</p>
+      </div>
+      <div class="metric">
+        <div class="label">商機訊號</div>
+        <div class="value">4 類</div>
+        <p class="text">健康辦公、智慧辦公、租賃循環、企業搬遷與辦公升級。</p>
+      </div>
+      <div class="metric">
+        <div class="label">建議處理優先序</div>
+        <div class="value">競品回應</div>
+        <p class="text">先補強差異化論述，再連動銷售工具與內容行銷。</p>
+      </div>
+    </div>
+
+    <div class="layout">
+      <nav aria-label="章節導覽">
+        <a href="#s1">1. 今日輿情總結</a>
+        <a href="#s2">2. 品牌聲量</a>
+        <a href="#s3">3. 風險與危機等級</a>
+        <a href="#s4">4. 競品今日動態</a>
+        <a href="#s5">5. 競品發展方向</a>
+        <a href="#s6">6. 競品下一步預測</a>
+        <a href="#s7">7. 借鏡與發展分析</a>
+        <a href="#s8">8. ESG 與未來辦公</a>
+        <a href="#s9">9. 商機訊號</a>
+        <a href="#s10">10. 今日建議行動</a>
+        <a href="#sources">資料來源</a>
+      </nav>
+
+      <div class="content">
+        <section id="s1">
+          <h2>1. 今日輿情總結</h2>
+          <p><span class="tag green">整體判讀</span>今日可查公開訊號中，震旦家具、大震設計、震旦集團、AURORA Furniture、AURORA Interior Design、NEXt WORK、UP!升降桌、Halo靜音艙未見明確爆量負面新聞或社群危機。品牌端較像是「低風險、低突發、高競爭壓力」的一天。</p>
+          <p><span class="tag warn">競品壓力</span>國際競品正在用更成熟的內容話語權拉開距離：MillerKnoll 透過 Aeron 更新把人體工學、色彩心理、永續材料與低碳設計包成產品故事；Steelcase 在 2026 辦公椅評測中仍維持強勢能見度；Haworth 以 Fern 等高階人體工學椅強化長時間辦公舒適定位；JLL、CBRE、Colliers 則把辦公室設計議題推向資產策略、混合辦公、優質空間與員工體驗。</p>
+          <p><span class="tag gray">市場氛圍</span>辦公家具與辦公室設計的需求不再只問桌椅價格，而是回到「人才回辦公室、健康辦公、彈性配置、ESG揭露、空間效率」的整合命題。這對震旦家具有利，因為震旦同時具備家具、規劃、通路與企業客戶服務基礎；但也代表競品將更頻繁用顧問式內容搶先進入客戶決策。</p>
+          <div class="status-row">
+            <div class="status good"><strong>正面訊號</strong><br>健康辦公、升降桌、靜音艙、永續辦公與家具租賃可串成完整解決方案。</div>
+            <div class="status warn"><strong>需注意</strong><br>競品正把產品功能轉化為低碳、幸福感、人才留任與空間績效語言。</div>
+            <div class="status"><strong>今日結論</strong><br>沒有明顯危機，但需要加速建立「震旦式未來辦公」論述。</div>
+          </div>
+        </section>
+
+        <section id="s2">
+          <h2>2. 震旦家具與大震設計品牌聲量</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>監測關鍵字</th>
+                <th>今日觀察</th>
+                <th>聲量判讀</th>
+                <th>行動建議</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>震旦家具／AURORA Furniture</td>
+                <td>公開搜尋結果未見重大負面新聞；品牌聯想仍集中於辦公家具、企業辦公解決方案與震旦集團。</td>
+                <td>穩定但偏功能型，容易被國際品牌的設計與永續敘事壓過。</td>
+                <td>將辦公家具升級為「工作方式設計」內容，避免只被視為桌椅供應商。</td>
+              </tr>
+              <tr>
+                <td>大震設計／AURORA Interior Design</td>
+                <td>可作為辦公室設計、空間規劃、工程交付、綠建材與 ESG 辦公室的敘事核心。</td>
+                <td>聲量仍有放大空間；適合承接 JLL、CBRE、Colliers 的 workplace strategy 話題。</td>
+                <td>產出案例式文章：從平面規劃、動線、材料、聲學、健康辦公到交付管理。</td>
+              </tr>
+              <tr>
+                <td>NEXt WORK／智慧辦公／健康辦公</td>
+                <td>可連結升降桌、靜音艙、彈性工位、混合辦公與辦公效率。</td>
+                <td>是差異化機會，但需要更清楚產品組合與客戶場景。</td>
+                <td>建立文字型「場景方案包」：專注工作、協作會議、敏捷團隊、主管區、ESG展示區。</td>
+              </tr>
+              <tr>
+                <td>UP!升降桌／Halo靜音艙</td>
+                <td>符合健康辦公與降噪需求；未見今日明顯負面風險。</td>
+                <td>可作為引流產品，但要搭配人體工學與聲學數據說服 B2B 採購。</td>
+                <td>補強 FAQ、比較表、維護保固、安裝案例與導入前後效益文字。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="s3">
+          <h2>3. 負面風險與危機等級 Level 0–4</h2>
+          <p><span class="tag green">今日等級：Level 1 低度監測</span>本日公開搜尋未見與震旦家具、大震設計、震旦集團相關的明確中高風險訊號，例如大規模客訴、施工糾紛、產品缺陷、服務爭議、ESG 批評或主流媒體負面報導。</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>等級</th>
+                <th>定義</th>
+                <th>今日是否觸發</th>
+                <th>處置</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Level 0</td>
+                <td>無異常訊號。</td>
+                <td>否，因競品議題活躍，仍需主動監測。</td>
+                <td>例行紀錄。</td>
+              </tr>
+              <tr>
+                <td>Level 1</td>
+                <td>低度風險或可預期競爭壓力。</td>
+                <td>是。</td>
+                <td>每日追蹤，更新關鍵字池。</td>
+              </tr>
+              <tr>
+                <td>Level 2</td>
+                <td>單點客訴、施工問題、服務不滿或社群擴散苗頭。</td>
+                <td>未見明確公開訊號。</td>
+                <td><span class="tag warn">需注意</span>若客服或業務端有內部案件，建議納入同一監測台帳。</td>
+              </tr>
+              <tr>
+                <td>Level 3</td>
+                <td>媒體報導、多人投訴、工程延誤或產品安全疑慮。</td>
+                <td>未觸發。</td>
+                <td><span class="tag risk">建議內部通報</span>一旦出現，需在 4 小時內完成事實盤點。</td>
+              </tr>
+              <tr>
+                <td>Level 4</td>
+                <td>重大危機、主管機關關注、法律爭議、ESG 信任受損。</td>
+                <td>未觸發。</td>
+                <td>啟動危機應變小組與統一對外口徑。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="s4">
+          <h2>4. 同行／競品今日動態</h2>
+          <div class="competitor">
+            <div class="competitor-title">Steelcase</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>在辦公椅評測與專業內容中維持強勢，Series 2、Leap 等產品持續被作為人體工學標竿。</div>
+              <div class="cell"><b>為何重要</b>Steelcase 把「舒適、保固、長時間工作」變成採購者可理解的風險降低語言。</div>
+              <div class="cell"><b>下一步可能</b>在 HNI 整併後，可能強化產品組合效率、通路覆蓋與中高階市場價格帶。</div>
+              <div class="cell"><b>震旦可學／反制</b>用本地交付、快速服務、空間規劃與總擁有成本對位，不只比單椅規格。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">MillerKnoll / Herman Miller</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>Aeron 推出新色與材料更新，主打生物親和色彩、尺寸包容性、海洋塑膠與減碳設計。</div>
+              <div class="cell"><b>為何重要</b>把經典產品重新包裝成「永續、情緒、人體工學、品牌美學」的完整故事。</div>
+              <div class="cell"><b>下一步可能</b>延伸更多色彩與低碳材料版本，並把產品更新連到企業 ESG 採購。</div>
+              <div class="cell"><b>震旦可學／反制</b>為 UP!升降桌、Halo靜音艙建立低碳材料、健康與心理安全敘事，避免只談功能。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">Haworth</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>以 Fern 等高階人體工學椅強化長工時舒適、材質與保固形象。</div>
+              <div class="cell"><b>為何重要</b>高階辦公椅競爭不只規格，而是「少調整也舒服」的使用體驗。</div>
+              <div class="cell"><b>下一步可能</b>持續結合高端設計品牌與聲學、協作、主管空間產品，鎖定高預算辦公升級。</div>
+              <div class="cell"><b>震旦可學／反制</b>建立本地人體工學選型顧問服務，將試坐、評估、安裝與保固流程產品化。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">Okamura Corporation</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>持續以日系精密製造、辦公椅、系統家具與空間品質建立信任。</div>
+              <div class="cell"><b>為何重要</b>台灣企業客戶對日系品質與細節管理有高度接受度。</div>
+              <div class="cell"><b>下一步可能</b>強化健康坐姿、辦公室更新與高質感主管／會議空間方案。</div>
+              <div class="cell"><b>震旦可學／反制</b>用在地售服、全案整合與價格彈性補足，並把品質檢核流程文字化。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">Kokuyo</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>以文具、辦公家具與工作方式設計的生活化品牌力切入。</div>
+              <div class="cell"><b>為何重要</b>Kokuyo 容易用設計感與日常工作效率觸及年輕決策者。</div>
+              <div class="cell"><b>下一步可能</b>把辦公室變成品牌體驗、學習空間與混合工作場景。</div>
+              <div class="cell"><b>震旦可學／反制</b>把震旦家具內容語氣做得更易懂，降低企業採購以外的距離感。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">優美 UB Office System</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>在台灣市場具備辦公家具與系統配置認知，可能與震旦競爭企業標案與更新案。</div>
+              <div class="cell"><b>為何重要</b>本土採購常重視交期、價格、維修與既有關係，國際品牌不一定占優勢。</div>
+              <div class="cell"><b>下一步可能</b>強化性價比、快速交付、模組家具與中小企業方案。</div>
+              <div class="cell"><b>震旦可學／反制</b>用「集團資源＋設計整合＋售後」建立比單純價格更完整的採購理由。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">ONLY 歐凌辦公家具</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>以辦公家具產品供應與方案服務切入本地客戶。</div>
+              <div class="cell"><b>為何重要</b>對價格敏感型、快速擴編型企業有吸引力。</div>
+              <div class="cell"><b>下一步可能</b>擴大線上詢價、案例展示與套裝式空間方案。</div>
+              <div class="cell"><b>震旦可學／反制</b>建立更清楚的標準套裝與租賃方案，讓業務能快速回應預算型客戶。</div>
+            </div>
+          </div>
+
+          <div class="competitor">
+            <div class="competitor-title">JLL / CBRE / Colliers</div>
+            <div class="competitor-body">
+              <div class="cell"><b>正在做什麼</b>把辦公室需求放進租賃策略、資產管理、混合辦公、員工體驗與永續空間框架。</div>
+              <div class="cell"><b>為何重要</b>他們常在客戶決定搬遷、縮編、擴編、續租前就進入決策流程。</div>
+              <div class="cell"><b>下一步可能</b>推出更多 workplace strategy、occupancy planning、ESG office 與高品質辦公供給報告。</div>
+              <div class="cell"><b>震旦可學／反制</b>與其競爭話語權，也可合作成為家具與空間落地夥伴；內容上要對齊「坪效、體驗、碳、彈性」。</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="s5">
+          <h2>5. 競品發展方向與新知</h2>
+          <ul>
+            <li><strong>人體工學高端化：</strong>Steelcase、MillerKnoll、Haworth 都把椅子從設備升級為健康投資。震旦應把升降桌、人體工學椅、螢幕支架、照明與聲學合併成健康辦公套件。</li>
+            <li><strong>永續材料故事化：</strong>MillerKnoll 的 Aeron 更新顯示，減碳不只放在永續報告，也能變成產品賣點。震旦可把綠建材、可維修、可替換、家具租賃與以租代購包成「循環辦公」方案。</li>
+            <li><strong>辦公室設計顧問化：</strong>JLL、CBRE、Colliers 正把辦公空間視為企業策略工具。震旦與大震設計若只溝通產品，會被顧問端先定義需求。</li>
+            <li><strong>混合辦公常態化：</strong>2026 相關研究指出，辦公室出勤出現週二至週四較高峰的結構性型態，代表空間需要支援尖峰協作與非尖峰彈性使用。</li>
+            <li><strong>聲學與專注需求升溫：</strong>靜音艙不只是設備，而是開放式辦公疲乏下的「專注工作基礎建設」。Halo靜音艙應用場景可擴大到客服、視訊會議、人資面談與機密討論。</li>
+          </ul>
+        </section>
+
+        <section id="s6">
+          <h2>6. 競品下一步可能動作預測</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>競品群</th>
+                <th>可能動作</th>
+                <th>對震旦的壓力</th>
+                <th>建議預先布局</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>國際家具品牌</td>
+                <td>推出低碳材料、經典產品改版、人體工學內容與設計獎項宣傳。</td>
+                <td>提高客戶對「品牌、設計、永續證據」的期待。</td>
+                <td>建立震旦產品永續與健康辦公證據庫。</td>
+              </tr>
+              <tr>
+                <td>本土辦公家具商</td>
+                <td>主打價格、快速交付、套裝方案、線上詢價。</td>
+                <td>搶中小企業與標準化需求。</td>
+                <td>推出入門、中階、高階三種文字清楚的方案包。</td>
+              </tr>
+              <tr>
+                <td>地產與工作場所整合商</td>
+                <td>用報告、白皮書、租賃數據與 workplace strategy 先教育客戶。</td>
+                <td>震旦可能在家具採購階段才被找進來，議價權降低。</td>
+                <td>與大震設計共同發布「台灣企業未來辦公觀察」。</td>
+              </tr>
+              <tr>
+                <td>聲學與智慧辦公新創</td>
+                <td>聚焦靜音艙、感測器、空間使用率、預約系統。</td>
+                <td>分食 Halo靜音艙與智慧辦公話題。</td>
+                <td>把 Halo 與會議預約、工位策略、資安與維護服務組合化。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="s7">
+          <h2>7. 對震旦家具值得借鏡與發展的分析</h2>
+          <h3>值得借鏡</h3>
+          <ul>
+            <li><strong>從產品規格走向決策語言：</strong>競品強項是把產品翻譯成健康、效率、永續、人才體驗與企業形象。震旦應把每個產品頁補上「對人資、總務、財務、ESG、IT 分別代表什麼價值」。</li>
+            <li><strong>用案例建立信任：</strong>國際品牌常用研究與案例放大信任。震旦可用台灣企業案例呈現搬遷、擴編、舊辦翻新、混合辦公導入前後的文字成果。</li>
+            <li><strong>讓大震設計成為前端顧問：</strong>大震設計不應只是工程或設計執行單位，而是需求盤點、空間策略、材料選擇與交付管理的入口。</li>
+          </ul>
+          <h3>可反向定位</h3>
+          <ul>
+            <li><strong>在地交付：</strong>國際品牌的品牌光環強，但震旦可強調本地溝通、快速到場、售後維修與長期服務。</li>
+            <li><strong>總成本透明：</strong>將購置、租賃、維修、換新、搬遷再利用的成本寫成純文字比較，切入財務與總務決策。</li>
+            <li><strong>循環辦公：</strong>以租代購、家具租賃、回收整新、模組再配置能形成比單次銷售更強的 ESG 方案。</li>
+          </ul>
+        </section>
+
+        <section id="s8">
+          <h2>8. ESG、循環經濟與未來辦公議題觀察</h2>
+          <p><span class="tag green">ESG辦公室</span>企業採購將更重視可說明、可追蹤、可稽核的辦公室永續證據。震旦可把綠建材、低揮發材料、耐用維修、二次配置、包材減量與供應鏈管理整理成「ESG 辦公採購文字包」。</p>
+          <p><span class="tag green">循環經濟</span>家具租賃與以租代購不只是付款方式，而是循環經濟入口。若能設計回收、整新、再出租、零件更換與碳／廢棄物估算流程，將比單純低價租賃更有企業策略價值。</p>
+          <p><span class="tag green">健康辦公</span>升降桌、人體工學椅、專注艙、照明、空氣品質與噪音控制可共同支援員工健康。建議用「一天工作旅程」描述產品組合：坐站切換、專注工作、視訊會議、短會協作、休息恢復。</p>
+          <p><span class="tag warn">需注意</span>ESG 敘事若缺少數據或第三方證明，容易被質疑漂綠。震旦在對外內容中應清楚區分「已具證據」、「內部管理中」、「未來目標」。</p>
+        </section>
+
+        <section id="s9">
+          <h2>9. 商機訊號</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>商機類型</th>
+                <th>觸發訊號</th>
+                <th>震旦可推方案</th>
+                <th>目標決策者</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>辦公升級與回辦公室</td>
+                <td>企業希望提高辦公室吸引力與協作效率。</td>
+                <td>NEXt WORK 辦公升級包、協作區、專注區、主管區改造。</td>
+                <td>總務、人資、營運長。</td>
+              </tr>
+              <tr>
+                <td>健康辦公採購</td>
+                <td>長時間工作、人體工學椅評測與升降桌需求升溫。</td>
+                <td>UP!升降桌＋人體工學椅＋螢幕支架＋教育訓練。</td>
+                <td>人資、職安、採購。</td>
+              </tr>
+              <tr>
+                <td>聲學與視訊會議</td>
+                <td>混合辦公帶來噪音、隱私與線上會議品質問題。</td>
+                <td>Halo靜音艙、電話亭、專注艙、會議艙與空間預約流程。</td>
+                <td>IT、總務、客服主管。</td>
+              </tr>
+              <tr>
+                <td>ESG與循環辦公</td>
+                <td>企業需要降低一次性採購與辦公室廢棄物。</td>
+                <td>家具租賃、以租代購、整新回收、綠建材選配。</td>
+                <td>ESG、財務、採購。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="s10">
+          <h2>10. 今日建議行動</h2>
+          <ol>
+            <li><strong>今日完成：</strong>建立「Level 1 低風險」紀錄，標註今日未見中高風險公開負面訊號；若客服、工程、業務端有內部客訴，需補入同一份台帳。</li>
+            <li><strong>48 小時內：</strong>產出一頁式競品回應話術，對 Steelcase、MillerKnoll、Haworth、Okamura、Kokuyo、優美、ONLY 分別列出震旦優勢。</li>
+            <li><strong>本週內：</strong>為 UP!升降桌與 Halo靜音艙補齊「健康辦公、聲學、ESG、維護保固、導入場景」純文字 FAQ。</li>
+            <li><strong>兩週內：</strong>由震旦家具與大震設計共同發布「辦公空間規劃與循環辦公」文章，承接 JLL、CBRE、Colliers 的 workplace strategy 話題。</li>
+            <li><strong>本月內：</strong>設計家具租賃／以租代購的企業方案頁，將財務彈性、循環經濟、搬遷彈性與售後服務寫成可供採購比較的文字內容。</li>
+          </ol>
+          <p><span class="tag warn">需注意</span>若未來出現震旦家具、大震設計相關客訴、工程延誤、產品瑕疵、服務糾紛、ESG 批評或媒體報導，請即刻升級至 Level 2 以上；若涉及多人投訴或媒體查證，標記為「建議內部通報」。</p>
+        </section>
+
+        <section id="sources">
+          <h2>資料來源與監測說明</h2>
+          <p class="small">本頁依 2026-06-12 可公開查詢資料整理，搜尋涵蓋震旦家具、大震設計、震旦集團、AURORA Furniture、AURORA Interior Design、NEXt WORK、辦公家具、辦公室設計、辦公空間規劃、健康辦公、智慧辦公、永續辦公、循環經濟、家具租賃、以租代購、綠建材、ESG辦公室、升降桌、靜音艙、UP!升降桌、Halo靜音艙，以及指定競品與整合商。未能取得付費牆或非公開社群後台資料；風險判讀以公開搜尋結果為準。</p>
+          <ul class="source-list">
+            <li><a href="https://www.techradar.com/best/best-office-chairs">TechRadar: Best office chairs of 2026</a></li>
+            <li><a href="https://www.wallpaper.com/design-interiors/furniture/herman-miller-aeron-office-chair">Wallpaper: Herman Miller Aeron update, June 2026</a></li>
+            <li><a href="https://www.techradar.com/pro/haworth-fern-office-chair-review">TechRadar: Haworth Fern office chair review</a></li>
+            <li><a href="https://www.marketwatch.com/story/office-furniture-maker-steelcase-cut-jobs-in-the-first-quarter-and-more-cuts-could-be-coming-89698f89">MarketWatch: Steelcase demand and restructuring context</a></li>
+            <li><a href="https://www.investopedia.com/this-furniture-maker-says-the-iran-war-is-pressuring-its-outook-its-stock-is-plunging-11934771">Investopedia: MillerKnoll outlook and logistics pressure</a></li>
+            <li><a href="https://arxiv.org/abs/2603.18440">arXiv: Mapping the Midweek Mountain, hybrid work patterns</a></li>
+            <li><a href="https://m.economictimes.com/industry/services/property-/-cstruction/indias-office-market-leads-workplace-transformation-in-asia-pacific/articleshow/125240530.cms">Economic Times: Colliers 2026 Asia Pacific Workplace Insights coverage</a></li>
+            <li><a href="https://m.economictimes.com/industry/services/property-/-cstruction/india-office-market-set-for-next-growth-cycle-led-by-gccs-flex-spaces-and-reits/articleshow/129636484.cms">Economic Times: Colliers 2026 office market growth signals</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    文字型監測頁。未使用長條圖、折線圖、圓餅圖、地圖或互動視覺化；所有分析均以文字、表格與風險標籤呈現。
+  </footer>
+</body>
+</html>
