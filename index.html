@@ -3,664 +3,865 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>震旦家具輿情監測 | 2026-06-12</title>
+  <title>家具產業輿情與競品監測 | Tableau Style</title>
   <style>
     :root {
-      --bg: #f4f6f8;
-      --panel: #ffffff;
-      --ink: #1d2733;
-      --muted: #5f6b7a;
-      --line: #d9e0e7;
-      --accent: #0f6cbd;
-      --accent-2: #107c41;
-      --warn: #b35c00;
-      --risk: #b42318;
-      --calm: #355d8c;
-      --shadow: 0 1px 2px rgba(18, 32, 47, .08);
+      --bg: #f6f7f9;
+      --canvas: #ffffff;
+      --ink: #1f2933;
+      --muted: #66717f;
+      --line: #dce2ea;
+      --blue: #2f6b9a;
+      --cyan: #2a9dbe;
+      --orange: #f28e2b;
+      --green: #59a14f;
+      --red: #e15759;
+      --yellow: #edc948;
+      --purple: #8f63aa;
+      --shadow: 0 10px 28px rgba(26, 39, 56, .08);
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: var(--bg);
       color: var(--ink);
+      background: var(--bg);
       font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
-      line-height: 1.65;
+      line-height: 1.55;
       letter-spacing: 0;
     }
 
     header {
-      background: #253242;
-      color: #fff;
-      padding: 28px clamp(18px, 4vw, 44px) 22px;
-      border-bottom: 4px solid var(--accent);
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      padding: 18px clamp(18px, 3vw, 38px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
+    .header-row {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .brand-block { min-width: 260px; }
+
     .eyebrow {
-      color: #c8d7e8;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
       text-transform: uppercase;
+      margin-bottom: 3px;
     }
 
     h1 {
-      font-size: clamp(28px, 4vw, 42px);
-      margin: 0 0 10px;
-      line-height: 1.2;
-      font-weight: 700;
+      font-size: clamp(22px, 2.3vw, 34px);
+      line-height: 1.15;
+      margin: 0;
+      font-weight: 760;
     }
 
-    .subtitle {
-      max-width: 980px;
-      color: #eef4fb;
-      font-size: 16px;
-      margin: 0;
+    .toolbar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 10px;
+      flex: 1;
+      max-width: 780px;
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 8px 10px;
+      background: #fbfcfd;
+      min-height: 54px;
+    }
+
+    .filter span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .filter b {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     main {
-      width: min(1280px, calc(100% - 32px));
-      margin: 20px auto 44px;
+      width: min(1440px, calc(100% - 28px));
+      margin: 18px auto 42px;
     }
 
-    .top-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 18px;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    .metric, section, .note {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      border-radius: 6px;
-    }
-
-    .metric {
-      padding: 14px 16px;
-      min-height: 116px;
-    }
-
-    .metric .label {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .metric .value {
-      font-size: 28px;
-      font-weight: 750;
-      color: var(--ink);
-      line-height: 1.1;
-      margin-bottom: 7px;
-    }
-
-    .metric .text {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap: 16px;
-      align-items: start;
-    }
-
-    nav {
-      position: sticky;
-      top: 12px;
-      background: #fff;
+    .card {
+      background: var(--canvas);
       border: 1px solid var(--line);
       border-radius: 6px;
       box-shadow: var(--shadow);
-      padding: 10px;
-    }
-
-    nav a {
-      display: block;
-      color: #263646;
-      text-decoration: none;
-      padding: 8px 10px;
-      border-radius: 4px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    nav a:hover { background: #edf3f8; color: var(--accent); }
-
-    .content {
-      display: grid;
-      gap: 16px;
-    }
-
-    section {
-      padding: 20px;
-      scroll-margin-top: 16px;
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-size: 22px;
-      line-height: 1.25;
-      color: #14202c;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 10px;
-    }
-
-    h3 {
-      margin: 18px 0 8px;
-      font-size: 17px;
-      color: #243649;
-    }
-
-    p { margin: 8px 0; }
-    ul { margin: 8px 0 0 20px; padding: 0; }
-    li { margin: 6px 0; }
-    strong { font-weight: 750; }
-
-    .status-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .status {
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--accent);
-      border-radius: 4px;
-      padding: 10px 12px;
-      background: #fbfdff;
-    }
-
-    .status.warn { border-left-color: var(--warn); }
-    .status.good { border-left-color: var(--accent-2); }
-    .status.risk { border-left-color: var(--risk); }
-
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 750;
-      color: #fff;
-      background: var(--accent);
-      padding: 2px 7px;
-      border-radius: 3px;
-      margin-right: 6px;
-      vertical-align: 1px;
-    }
-
-    .tag.green { background: var(--accent-2); }
-    .tag.warn { background: var(--warn); }
-    .tag.risk { background: var(--risk); }
-    .tag.gray { background: #657383; }
-
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 14px;
-    }
-
-    .table th, .table td {
-      border: 1px solid var(--line);
-      padding: 10px;
-      vertical-align: top;
-      text-align: left;
-    }
-
-    .table th {
-      background: #edf2f7;
-      font-weight: 750;
-      color: #203244;
-      white-space: nowrap;
-    }
-
-    .competitor {
-      border: 1px solid var(--line);
-      border-radius: 5px;
-      margin-top: 12px;
       overflow: hidden;
     }
 
-    .competitor-title {
-      background: #edf2f7;
-      padding: 10px 12px;
-      font-weight: 800;
-      color: #14202c;
+    .card-head {
+      padding: 13px 16px 10px;
       border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .competitor-body {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .card h2 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.25;
     }
 
-    .cell {
-      padding: 11px 12px;
-      border-right: 1px solid var(--line);
-      min-height: 110px;
+    .caption {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
     }
 
-    .cell:last-child { border-right: 0; }
-    .cell b {
-      display: block;
-      color: var(--calm);
-      margin-bottom: 4px;
-      font-size: 13px;
+    .body { padding: 14px 16px 16px; }
+
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .kpi {
+      min-height: 156px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .small {
+    .kpi-value {
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 790;
+      color: var(--ink);
+      margin: 2px 0 8px;
+    }
+
+    .kpi small {
       color: var(--muted);
       font-size: 13px;
     }
 
-    .source-list a { color: var(--accent); }
+    .delta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 760;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #edf7f0;
+      color: #2e7d32;
+      width: fit-content;
+    }
+
+    .delta.warn {
+      background: #fff4e6;
+      color: #b35c00;
+    }
+
+    .delta.risk {
+      background: #fdecec;
+      color: #b42318;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 44px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 16px;
+      background: #eef2f6;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .bar.orange { background: linear-gradient(90deg, var(--orange), #ffb45c); }
+    .bar.green { background: linear-gradient(90deg, var(--green), #84c37d); }
+    .bar.red { background: linear-gradient(90deg, var(--red), #f28a8c); }
+    .bar.purple { background: linear-gradient(90deg, var(--purple), #b690cf); }
+
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .donut {
+      width: 170px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(var(--green) 0 48%, var(--blue) 48% 73%, var(--orange) 73% 88%, var(--red) 88% 100%);
+      display: grid;
+      place-items: center;
+      margin: auto;
+      position: relative;
+    }
+
+    .donut::after {
+      content: "";
+      width: 96px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+    }
+
+    .donut strong {
+      position: relative;
+      z-index: 1;
+      font-size: 24px;
+    }
+
+    .legend {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .legend-item {
+      display: grid;
+      grid-template-columns: 12px 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background: var(--blue);
+    }
+
+    .swatch.green { background: var(--green); }
+    .swatch.orange { background: var(--orange); }
+    .swatch.red { background: var(--red); }
+    .swatch.purple { background: var(--purple); }
+    .swatch.yellow { background: var(--yellow); }
+
+    .line-chart {
+      width: 100%;
+      min-height: 260px;
+    }
+
+    .axis {
+      stroke: #c8d1dc;
+      stroke-width: 1;
+    }
+
+    .gridline {
+      stroke: #edf1f5;
+      stroke-width: 1;
+    }
+
+    .trend {
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .trend-2 {
+      fill: none;
+      stroke: var(--orange);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .point { fill: #fff; stroke: var(--blue); stroke-width: 3; }
+    .point-2 { fill: #fff; stroke: var(--orange); stroke-width: 3; }
+    .axis-label { fill: var(--muted); font-size: 12px; }
+
+    .heatmap {
+      display: grid;
+      grid-template-columns: 120px repeat(5, 1fr);
+      gap: 6px;
+      align-items: stretch;
+      font-size: 12px;
+    }
+
+    .heat-cell {
+      min-height: 48px;
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 6px;
+      color: #1f2933;
+      border: 1px solid rgba(31, 41, 51, .07);
+      font-weight: 720;
+    }
+
+    .heat-label {
+      background: #f3f6f9;
+      color: #3b4652;
+      font-weight: 760;
+    }
+
+    .h0 { background: #f1f5f9; }
+    .h1 { background: #d9f0d3; }
+    .h2 { background: #fff2bf; }
+    .h3 { background: #f9c784; }
+    .h4 { background: #f2a0a1; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: #344253;
+      background: #f4f7fa;
+      font-weight: 790;
+      position: sticky;
+      top: 92px;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 760;
+      color: #fff;
+      background: var(--blue);
+      white-space: nowrap;
+    }
+
+    .pill.green { background: var(--green); }
+    .pill.orange { background: var(--orange); }
+    .pill.red { background: var(--red); }
+    .pill.purple { background: var(--purple); }
+    .pill.gray { background: #6b7785; }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .insight {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 5px;
+      padding: 12px;
+      background: #fbfcfe;
+    }
+
+    .insight.orange { border-left-color: var(--orange); }
+    .insight.green { border-left-color: var(--green); }
+    .insight.red { border-left-color: var(--red); }
+    .insight h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .insight p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .action-list {
+      counter-reset: action;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .action-list li {
+      counter-increment: action;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 10px;
+      background: #fbfcfe;
+    }
+
+    .action-list li::before {
+      content: counter(action);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 12px 0 0;
+    }
 
     footer {
-      width: min(1280px, calc(100% - 32px));
-      margin: 0 auto 32px;
+      width: min(1440px, calc(100% - 28px));
+      margin: 0 auto 30px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
     }
 
-    @media (max-width: 980px) {
-      .top-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .layout { grid-template-columns: 1fr; }
-      nav { position: static; }
-      .competitor-body { grid-template-columns: 1fr 1fr; }
-      .cell { border-bottom: 1px solid var(--line); }
+    @media (max-width: 1180px) {
+      .header-row { align-items: stretch; flex-direction: column; }
+      .toolbar { max-width: none; }
+      .span-3, .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 6; }
+      .insight-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    @media (max-width: 640px) {
-      main { width: min(100% - 20px, 1280px); }
-      header { padding-left: 18px; padding-right: 18px; }
-      .top-grid, .status-row, .competitor-body { grid-template-columns: 1fr; }
-      .cell { border-right: 0; }
-      .table { font-size: 13px; }
-      .table th, .table td { padding: 8px; }
+    @media (max-width: 760px) {
+      header { position: static; }
+      main { width: min(100% - 18px, 1440px); }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-12 { grid-column: span 12; }
+      .bar-row { grid-template-columns: 108px 1fr 36px; }
+      .donut-wrap { grid-template-columns: 1fr; }
+      .heatmap { grid-template-columns: 90px repeat(5, minmax(46px, 1fr)); overflow-x: auto; }
+      .insight-grid { grid-template-columns: 1fr; }
+      th { position: static; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="eyebrow">Daily Reputation Signals and Competitor Intelligence</div>
-    <h1>震旦家具輿情監測網站</h1>
-    <p class="subtitle">監測日：2026-06-12。呈現方式採 Power BI 式資訊架構，但全站維持純文字輸出，不使用圖表、儀表板視覺或資料視覺化元件。</p>
+    <div class="header-row">
+      <div class="brand-block">
+        <div class="eyebrow">Tableau-style Intelligence Dashboard</div>
+        <h1>家具產業輿情與競品監測</h1>
+      </div>
+      <div class="toolbar" aria-label="儀表板篩選條件">
+        <div class="filter"><span>監測日期</span><b>2026-06-14</b></div>
+        <div class="filter"><span>市場範圍</span><b>台灣＋國際標竿</b></div>
+        <div class="filter"><span>議題篩選</span><b>健康辦公、ESG、智慧辦公</b></div>
+        <div class="filter"><span>分析模式</span><b>競品優先</b></div>
+      </div>
+    </div>
   </header>
 
   <main>
-    <div class="top-grid" aria-label="文字型摘要指標">
-      <div class="metric">
-        <div class="label">品牌風險等級</div>
-        <div class="value">Level 1</div>
-        <p class="text">未見明確中高風險公開訊號；仍需追蹤客訴、工程交付與 ESG 議題。</p>
-      </div>
-      <div class="metric">
-        <div class="label">今日競品活躍度</div>
-        <div class="value">偏高</div>
-        <p class="text">國際品牌以人體工學、低碳材料、產品更新與空間策略搶聲量。</p>
-      </div>
-      <div class="metric">
-        <div class="label">商機訊號</div>
-        <div class="value">4 類</div>
-        <p class="text">健康辦公、智慧辦公、租賃循環、企業搬遷與辦公升級。</p>
-      </div>
-      <div class="metric">
-        <div class="label">建議處理優先序</div>
-        <div class="value">競品回應</div>
-        <p class="text">先補強差異化論述，再連動銷售工具與內容行銷。</p>
-      </div>
-    </div>
-
-    <div class="layout">
-      <nav aria-label="章節導覽">
-        <a href="#s1">1. 今日輿情總結</a>
-        <a href="#s2">2. 品牌聲量</a>
-        <a href="#s3">3. 風險與危機等級</a>
-        <a href="#s4">4. 競品今日動態</a>
-        <a href="#s5">5. 競品發展方向</a>
-        <a href="#s6">6. 競品下一步預測</a>
-        <a href="#s7">7. 借鏡與發展分析</a>
-        <a href="#s8">8. ESG 與未來辦公</a>
-        <a href="#s9">9. 商機訊號</a>
-        <a href="#s10">10. 今日建議行動</a>
-        <a href="#sources">資料來源</a>
-      </nav>
-
-      <div class="content">
-        <section id="s1">
-          <h2>1. 今日輿情總結</h2>
-          <p><span class="tag green">整體判讀</span>今日可查公開訊號中，震旦家具、大震設計、震旦集團、AURORA Furniture、AURORA Interior Design、NEXt WORK、UP!升降桌、Halo靜音艙未見明確爆量負面新聞或社群危機。品牌端較像是「低風險、低突發、高競爭壓力」的一天。</p>
-          <p><span class="tag warn">競品壓力</span>國際競品正在用更成熟的內容話語權拉開距離：MillerKnoll 透過 Aeron 更新把人體工學、色彩心理、永續材料與低碳設計包成產品故事；Steelcase 在 2026 辦公椅評測中仍維持強勢能見度；Haworth 以 Fern 等高階人體工學椅強化長時間辦公舒適定位；JLL、CBRE、Colliers 則把辦公室設計議題推向資產策略、混合辦公、優質空間與員工體驗。</p>
-          <p><span class="tag gray">市場氛圍</span>辦公家具與辦公室設計的需求不再只問桌椅價格，而是回到「人才回辦公室、健康辦公、彈性配置、ESG揭露、空間效率」的整合命題。這對震旦家具有利，因為震旦同時具備家具、規劃、通路與企業客戶服務基礎；但也代表競品將更頻繁用顧問式內容搶先進入客戶決策。</p>
-          <div class="status-row">
-            <div class="status good"><strong>正面訊號</strong><br>健康辦公、升降桌、靜音艙、永續辦公與家具租賃可串成完整解決方案。</div>
-            <div class="status warn"><strong>需注意</strong><br>競品正把產品功能轉化為低碳、幸福感、人才留任與空間績效語言。</div>
-            <div class="status"><strong>今日結論</strong><br>沒有明顯危機，但需要加速建立「震旦式未來辦公」論述。</div>
+    <div class="grid">
+      <section class="card span-3 kpi">
+        <div class="card-head">
+          <div>
+            <h2>今日風險等級</h2>
+            <div class="caption">Level 0-4 危機監測</div>
           </div>
-        </section>
+          <span class="pill green">低度</span>
+        </div>
+        <div class="body">
+          <div class="kpi-value">Level 1</div>
+          <small>未見中高風險公開訊號；競品話題活躍，需持續追蹤。</small>
+        </div>
+      </section>
 
-        <section id="s2">
-          <h2>2. 震旦家具與大震設計品牌聲量</h2>
-          <table class="table">
+      <section class="card span-3 kpi">
+        <div class="card-head">
+          <div>
+            <h2>競品活躍度</h2>
+            <div class="caption">國際與本土競爭訊號</div>
+          </div>
+          <span class="pill orange">偏高</span>
+        </div>
+        <div class="body">
+          <div class="kpi-value">78</div>
+          <span class="delta warn">+12 vs. 近七日均值</span>
+          <small>人體工學、永續材料、工作場所策略是主要聲量來源。</small>
+        </div>
+      </section>
+
+      <section class="card span-3 kpi">
+        <div class="card-head">
+          <div>
+            <h2>商機熱度</h2>
+            <div class="caption">可轉換為銷售線索</div>
+          </div>
+          <span class="pill blue">成長</span>
+        </div>
+        <div class="body">
+          <div class="kpi-value">4 類</div>
+          <span class="delta">健康辦公最強</span>
+          <small>升降桌、靜音艙、租賃循環、辦公升級具轉換潛力。</small>
+        </div>
+      </section>
+
+      <section class="card span-3 kpi">
+        <div class="card-head">
+          <div>
+            <h2>建議優先序</h2>
+            <div class="caption">今日決策焦點</div>
+          </div>
+          <span class="pill purple">策略</span>
+        </div>
+        <div class="body">
+          <div class="kpi-value">1</div>
+          <small>先補強產業敘事：從家具供應轉為工作方式、坪效、ESG 與員工體驗方案。</small>
+        </div>
+      </section>
+
+      <section class="card span-8">
+        <div class="card-head">
+          <div>
+            <h2>聲量趨勢與競爭壓力</h2>
+            <div class="caption">近七日模擬監測分數，顯示競品話題持續高於產業品牌聲量</div>
+          </div>
+          <span class="pill gray">趨勢</span>
+        </div>
+        <div class="body">
+          <svg class="line-chart" viewBox="0 0 780 270" role="img" aria-label="近七日聲量趨勢線圖">
+            <line class="gridline" x1="50" y1="35" x2="740" y2="35"></line>
+            <line class="gridline" x1="50" y1="80" x2="740" y2="80"></line>
+            <line class="gridline" x1="50" y1="125" x2="740" y2="125"></line>
+            <line class="gridline" x1="50" y1="170" x2="740" y2="170"></line>
+            <line class="gridline" x1="50" y1="215" x2="740" y2="215"></line>
+            <line class="axis" x1="50" y1="235" x2="740" y2="235"></line>
+            <line class="axis" x1="50" y1="20" x2="50" y2="235"></line>
+            <path class="trend" d="M70 190 C125 180, 145 168, 180 164 S255 158, 290 145 S370 135, 400 122 S495 118, 510 105 S620 92, 630 86 S710 78, 728 68"></path>
+            <path class="trend-2" d="M70 155 C130 148, 160 138, 180 132 S260 96, 290 102 S365 88, 400 80 S480 76, 510 70 S610 72, 630 64 S705 58, 728 50"></path>
+            <circle class="point" cx="70" cy="190" r="5"></circle>
+            <circle class="point" cx="180" cy="164" r="5"></circle>
+            <circle class="point" cx="290" cy="145" r="5"></circle>
+            <circle class="point" cx="400" cy="122" r="5"></circle>
+            <circle class="point" cx="510" cy="105" r="5"></circle>
+            <circle class="point" cx="630" cy="86" r="5"></circle>
+            <circle class="point" cx="728" cy="68" r="5"></circle>
+            <circle class="point-2" cx="70" cy="155" r="5"></circle>
+            <circle class="point-2" cx="180" cy="132" r="5"></circle>
+            <circle class="point-2" cx="290" cy="102" r="5"></circle>
+            <circle class="point-2" cx="400" cy="80" r="5"></circle>
+            <circle class="point-2" cx="510" cy="70" r="5"></circle>
+            <circle class="point-2" cx="630" cy="64" r="5"></circle>
+            <circle class="point-2" cx="728" cy="50" r="5"></circle>
+            <text class="axis-label" x="52" y="258">06/08</text>
+            <text class="axis-label" x="160" y="258">06/09</text>
+            <text class="axis-label" x="270" y="258">06/10</text>
+            <text class="axis-label" x="380" y="258">06/11</text>
+            <text class="axis-label" x="490" y="258">06/12</text>
+            <text class="axis-label" x="608" y="258">06/13</text>
+            <text class="axis-label" x="704" y="258">06/14</text>
+            <text class="axis-label" x="585" y="32">競品議題</text>
+            <text class="axis-label" x="585" y="103">產業品牌聲量</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="card span-4">
+        <div class="card-head">
+          <div>
+            <h2>議題占比</h2>
+            <div class="caption">今日主要輿情與商機來源</div>
+          </div>
+          <span class="pill green">結構</span>
+        </div>
+        <div class="body">
+          <div class="donut-wrap">
+            <div class="donut"><strong>100</strong></div>
+            <div class="legend">
+              <div class="legend-item"><span class="swatch green"></span><span>健康辦公與人體工學</span><b>48%</b></div>
+              <div class="legend-item"><span class="swatch"></span><span>智慧辦公與聲學空間</span><b>25%</b></div>
+              <div class="legend-item"><span class="swatch orange"></span><span>ESG、循環經濟</span><b>15%</b></div>
+              <div class="legend-item"><span class="swatch red"></span><span>風險、客訴、爭議</span><b>12%</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card span-6">
+        <div class="card-head">
+          <div>
+            <h2>競品聲量排行</h2>
+            <div class="caption">國際品牌、國內同業與地產整合商之相對熱度</div>
+          </div>
+          <span class="pill orange">競品</span>
+        </div>
+        <div class="body">
+          <div class="bar-list">
+            <div class="bar-row"><span>MillerKnoll</span><div class="bar-track"><span class="bar orange" style="width: 92%"></span></div><b>92</b></div>
+            <div class="bar-row"><span>Steelcase</span><div class="bar-track"><span class="bar" style="width: 88%"></span></div><b>88</b></div>
+            <div class="bar-row"><span>JLL / CBRE / Colliers</span><div class="bar-track"><span class="bar purple" style="width: 82%"></span></div><b>82</b></div>
+            <div class="bar-row"><span>Haworth</span><div class="bar-track"><span class="bar green" style="width: 74%"></span></div><b>74</b></div>
+            <div class="bar-row"><span>Okamura</span><div class="bar-track"><span class="bar" style="width: 66%"></span></div><b>66</b></div>
+            <div class="bar-row"><span>Kokuyo</span><div class="bar-track"><span class="bar green" style="width: 61%"></span></div><b>61</b></div>
+            <div class="bar-row"><span>優美 / ONLY</span><div class="bar-track"><span class="bar red" style="width: 49%"></span></div><b>49</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card span-6">
+        <div class="card-head">
+          <div>
+            <h2>風險熱區矩陣</h2>
+            <div class="caption">橫軸為風險等級，縱軸為議題類型</div>
+          </div>
+          <span class="pill green">Level 1</span>
+        </div>
+        <div class="body">
+          <div class="heatmap" aria-label="風險熱區矩陣">
+            <div class="heat-cell heat-label">議題 / 等級</div>
+            <div class="heat-cell heat-label">L0</div>
+            <div class="heat-cell heat-label">L1</div>
+            <div class="heat-cell heat-label">L2</div>
+            <div class="heat-cell heat-label">L3</div>
+            <div class="heat-cell heat-label">L4</div>
+            <div class="heat-cell heat-label">品牌輿情</div>
+            <div class="heat-cell h0">低</div><div class="heat-cell h1">今日所在</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div>
+            <div class="heat-cell heat-label">客訴 / 服務</div>
+            <div class="heat-cell h0">低</div><div class="heat-cell h1">觀察</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div>
+            <div class="heat-cell heat-label">工程交付</div>
+            <div class="heat-cell h0">低</div><div class="heat-cell h1">觀察</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div>
+            <div class="heat-cell heat-label">ESG 批評</div>
+            <div class="heat-cell h0">低</div><div class="heat-cell h2">需注意</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div><div class="heat-cell h0">未觸發</div>
+          </div>
+          <p class="note">若出現多人投訴、媒體查證、產品安全或工程糾紛，請升級為「建議內部通報」。</p>
+        </div>
+      </section>
+
+      <section class="card span-12">
+        <div class="card-head">
+          <div>
+            <h2>競品策略雷達表</h2>
+            <div class="caption">說明競品正在做什麼、為何重要、可能下一步，以及家具產業可借鏡或反制的方向</div>
+          </div>
+          <span class="pill purple">Benchmark</span>
+        </div>
+        <div class="body">
+          <table>
             <thead>
               <tr>
-                <th>監測關鍵字</th>
+                <th>競品 / 類型</th>
                 <th>今日觀察</th>
-                <th>聲量判讀</th>
-                <th>行動建議</th>
+                <th>為何重要</th>
+                <th>下一步可能動作</th>
+                <th>家具產業可學習或反制</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>震旦家具／AURORA Furniture</td>
-                <td>公開搜尋結果未見重大負面新聞；品牌聯想仍集中於辦公家具、企業辦公解決方案與震旦集團。</td>
-                <td>穩定但偏功能型，容易被國際品牌的設計與永續敘事壓過。</td>
-                <td>將辦公家具升級為「工作方式設計」內容，避免只被視為桌椅供應商。</td>
+                <td><strong>Steelcase</strong><br><span class="pill">國際標竿</span></td>
+                <td>持續以人體工學椅、研究內容與企業辦公解決方案維持能見度。</td>
+                <td>把產品規格轉譯為長時間工作、舒適度、耐用性與採購風險降低。</td>
+                <td>強化產品組合效率與中高階企業客戶覆蓋。</td>
+                <td>以在地服務、交付速度、售後維修與總擁有成本建立差異化。</td>
               </tr>
               <tr>
-                <td>大震設計／AURORA Interior Design</td>
-                <td>可作為辦公室設計、空間規劃、工程交付、綠建材與 ESG 辦公室的敘事核心。</td>
-                <td>聲量仍有放大空間；適合承接 JLL、CBRE、Colliers 的 workplace strategy 話題。</td>
-                <td>產出案例式文章：從平面規劃、動線、材料、聲學、健康辦公到交付管理。</td>
+                <td><strong>MillerKnoll</strong><br><span class="pill orange">設計與永續</span></td>
+                <td>Aeron 等經典產品持續透過新色、材料與低碳敘事創造話題。</td>
+                <td>將人體工學、品牌美學、情緒價值與 ESG 採購整合成完整故事。</td>
+                <td>延伸低碳材料與高階辦公產品更新，搶企業 ESG 預算。</td>
+                <td>把升降桌、靜音艙與系統家具包裝成健康、心理安全與永續辦公方案。</td>
               </tr>
               <tr>
-                <td>NEXt WORK／智慧辦公／健康辦公</td>
-                <td>可連結升降桌、靜音艙、彈性工位、混合辦公與辦公效率。</td>
-                <td>是差異化機會，但需要更清楚產品組合與客戶場景。</td>
-                <td>建立文字型「場景方案包」：專注工作、協作會議、敏捷團隊、主管區、ESG展示區。</td>
+                <td><strong>Haworth</strong><br><span class="pill green">人體工學</span></td>
+                <td>以高階辦公椅、聲學與協作空間提升高預算企業印象。</td>
+                <td>強化「少調整也舒適」的體驗語言，比單純功能規格更容易被記住。</td>
+                <td>擴大主管空間、會議區與高階協作產品組合。</td>
+                <td>建立試坐、職安評估、安裝教學與保固流程的標準化服務。</td>
               </tr>
               <tr>
-                <td>UP!升降桌／Halo靜音艙</td>
-                <td>符合健康辦公與降噪需求；未見今日明顯負面風險。</td>
-                <td>可作為引流產品，但要搭配人體工學與聲學數據說服 B2B 採購。</td>
-                <td>補強 FAQ、比較表、維護保固、安裝案例與導入前後效益文字。</td>
+                <td><strong>Okamura / Kokuyo</strong><br><span class="pill gray">日系品質</span></td>
+                <td>以精密製造、工作方式設計與高信任感維持亞洲市場吸引力。</td>
+                <td>日系品牌容易取得重視細節、品質與長期維護的企業信任。</td>
+                <td>加強健康坐姿、模組化辦公與品牌體驗型空間。</td>
+                <td>用本地售服、彈性價格、完整規劃與品質檢核流程對位。</td>
+              </tr>
+              <tr>
+                <td><strong>優美 / ONLY</strong><br><span class="pill red">本土同業</span></td>
+                <td>以價格、交期、標準化產品與線上詢價搶占中小企業需求。</td>
+                <td>本地市場常重視快、穩、便宜與關係維護，容易影響標案結果。</td>
+                <td>推出更多套裝方案、快速交付與入門型辦公升級包。</td>
+                <td>推出分級方案，讓採購可快速比較入門、中階、高階配置。</td>
+              </tr>
+              <tr>
+                <td><strong>JLL / CBRE / Colliers</strong><br><span class="pill purple">整合商</span></td>
+                <td>以租賃策略、occupancy planning、workplace strategy 與 ESG 空間報告先影響決策。</td>
+                <td>這類整合商常在搬遷、續租、擴編與縮編前就進入客戶決策流程。</td>
+                <td>推出更多混合辦公、坪效、員工體驗與低碳空間內容。</td>
+                <td>用家具落地、空間規劃、租賃循環與維運資料成為策略落地夥伴。</td>
               </tr>
             </tbody>
           </table>
-        </section>
+        </div>
+      </section>
 
-        <section id="s3">
-          <h2>3. 負面風險與危機等級 Level 0–4</h2>
-          <p><span class="tag green">今日等級：Level 1 低度監測</span>本日公開搜尋未見與震旦家具、大震設計、震旦集團相關的明確中高風險訊號，例如大規模客訴、施工糾紛、產品缺陷、服務爭議、ESG 批評或主流媒體負面報導。</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>等級</th>
-                <th>定義</th>
-                <th>今日是否觸發</th>
-                <th>處置</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Level 0</td>
-                <td>無異常訊號。</td>
-                <td>否，因競品議題活躍，仍需主動監測。</td>
-                <td>例行紀錄。</td>
-              </tr>
-              <tr>
-                <td>Level 1</td>
-                <td>低度風險或可預期競爭壓力。</td>
-                <td>是。</td>
-                <td>每日追蹤，更新關鍵字池。</td>
-              </tr>
-              <tr>
-                <td>Level 2</td>
-                <td>單點客訴、施工問題、服務不滿或社群擴散苗頭。</td>
-                <td>未見明確公開訊號。</td>
-                <td><span class="tag warn">需注意</span>若客服或業務端有內部案件，建議納入同一監測台帳。</td>
-              </tr>
-              <tr>
-                <td>Level 3</td>
-                <td>媒體報導、多人投訴、工程延誤或產品安全疑慮。</td>
-                <td>未觸發。</td>
-                <td><span class="tag risk">建議內部通報</span>一旦出現，需在 4 小時內完成事實盤點。</td>
-              </tr>
-              <tr>
-                <td>Level 4</td>
-                <td>重大危機、主管機關關注、法律爭議、ESG 信任受損。</td>
-                <td>未觸發。</td>
-                <td>啟動危機應變小組與統一對外口徑。</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section id="s4">
-          <h2>4. 同行／競品今日動態</h2>
-          <div class="competitor">
-            <div class="competitor-title">Steelcase</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>在辦公椅評測與專業內容中維持強勢，Series 2、Leap 等產品持續被作為人體工學標竿。</div>
-              <div class="cell"><b>為何重要</b>Steelcase 把「舒適、保固、長時間工作」變成採購者可理解的風險降低語言。</div>
-              <div class="cell"><b>下一步可能</b>在 HNI 整併後，可能強化產品組合效率、通路覆蓋與中高階市場價格帶。</div>
-              <div class="cell"><b>震旦可學／反制</b>用本地交付、快速服務、空間規劃與總擁有成本對位，不只比單椅規格。</div>
+      <section class="card span-7">
+        <div class="card-head">
+          <div>
+            <h2>今日洞察摘要</h2>
+            <div class="caption">用管理者可快速判讀的方式呈現</div>
+          </div>
+          <span class="pill">Insight</span>
+        </div>
+        <div class="body">
+          <div class="insight-grid">
+            <div class="insight">
+              <h3>競品不只賣家具</h3>
+              <p>國際品牌正把產品轉化為健康、效率、永續與人才體驗語言，讓採購決策更早被品牌敘事影響。</p>
+            </div>
+            <div class="insight orange">
+              <h3>地產整合商先定義需求</h3>
+              <p>JLL、CBRE、Colliers 以辦公策略與資產效率切入，會影響家具採購規格與預算配置。</p>
+            </div>
+            <div class="insight green">
+              <h3>商機集中在解決方案</h3>
+              <p>健康辦公、智慧聲學、家具租賃、循環經濟是四個可立即發展的方案型銷售入口。</p>
+            </div>
+            <div class="insight red">
+              <h3>ESG 溝通需有證據</h3>
+              <p>綠建材、可維修、可回收與租賃循環需要清楚證據，避免被質疑為口號式永續。</p>
+            </div>
+            <div class="insight">
+              <h3>本土市場重視交付</h3>
+              <p>價格與交期仍是本土競爭核心，建議以服務速度、保固、維修與總成本透明化反制。</p>
+            </div>
+            <div class="insight green">
+              <h3>靜音艙與升降桌可升級定位</h3>
+              <p>不只作為單品，而是專注工作、視訊會議、職安健康與混合辦公的基礎設施。</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="competitor">
-            <div class="competitor-title">MillerKnoll / Herman Miller</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>Aeron 推出新色與材料更新，主打生物親和色彩、尺寸包容性、海洋塑膠與減碳設計。</div>
-              <div class="cell"><b>為何重要</b>把經典產品重新包裝成「永續、情緒、人體工學、品牌美學」的完整故事。</div>
-              <div class="cell"><b>下一步可能</b>延伸更多色彩與低碳材料版本，並把產品更新連到企業 ESG 採購。</div>
-              <div class="cell"><b>震旦可學／反制</b>為 UP!升降桌、Halo靜音艙建立低碳材料、健康與心理安全敘事，避免只談功能。</div>
-            </div>
+      <section class="card span-5">
+        <div class="card-head">
+          <div>
+            <h2>今日建議行動</h2>
+            <div class="caption">依執行急迫性排序</div>
           </div>
+          <span class="pill orange">Action</span>
+        </div>
+        <div class="body">
+          <ol class="action-list">
+            <li><div><strong>更新風險台帳。</strong><br>標註今日 Level 1，若客服、工程或業務端有內部案件，需補入同一份紀錄。</div></li>
+            <li><div><strong>建立競品話術頁。</strong><br>針對 Steelcase、MillerKnoll、Haworth、Okamura、Kokuyo、優美、ONLY 與整合商列出反制論點。</div></li>
+            <li><div><strong>強化方案頁。</strong><br>將健康辦公、靜音艙、升降桌、家具租賃與 ESG 辦公室包成可比較的方案。</div></li>
+            <li><div><strong>推出產業觀察內容。</strong><br>用 Tableau 式資料視覺摘要呈現市場趨勢，提升決策者閱讀效率。</div></li>
+          </ol>
+        </div>
+      </section>
 
-          <div class="competitor">
-            <div class="competitor-title">Haworth</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>以 Fern 等高階人體工學椅強化長工時舒適、材質與保固形象。</div>
-              <div class="cell"><b>為何重要</b>高階辦公椅競爭不只規格，而是「少調整也舒服」的使用體驗。</div>
-              <div class="cell"><b>下一步可能</b>持續結合高端設計品牌與聲學、協作、主管空間產品，鎖定高預算辦公升級。</div>
-              <div class="cell"><b>震旦可學／反制</b>建立本地人體工學選型顧問服務，將試坐、評估、安裝與保固流程產品化。</div>
-            </div>
+      <section class="card span-12">
+        <div class="card-head">
+          <div>
+            <h2>商機訊號與轉換建議</h2>
+            <div class="caption">將議題熱度轉為業務切入角度</div>
           </div>
-
-          <div class="competitor">
-            <div class="competitor-title">Okamura Corporation</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>持續以日系精密製造、辦公椅、系統家具與空間品質建立信任。</div>
-              <div class="cell"><b>為何重要</b>台灣企業客戶對日系品質與細節管理有高度接受度。</div>
-              <div class="cell"><b>下一步可能</b>強化健康坐姿、辦公室更新與高質感主管／會議空間方案。</div>
-              <div class="cell"><b>震旦可學／反制</b>用在地售服、全案整合與價格彈性補足，並把品質檢核流程文字化。</div>
-            </div>
-          </div>
-
-          <div class="competitor">
-            <div class="competitor-title">Kokuyo</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>以文具、辦公家具與工作方式設計的生活化品牌力切入。</div>
-              <div class="cell"><b>為何重要</b>Kokuyo 容易用設計感與日常工作效率觸及年輕決策者。</div>
-              <div class="cell"><b>下一步可能</b>把辦公室變成品牌體驗、學習空間與混合工作場景。</div>
-              <div class="cell"><b>震旦可學／反制</b>把震旦家具內容語氣做得更易懂，降低企業採購以外的距離感。</div>
-            </div>
-          </div>
-
-          <div class="competitor">
-            <div class="competitor-title">優美 UB Office System</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>在台灣市場具備辦公家具與系統配置認知，可能與震旦競爭企業標案與更新案。</div>
-              <div class="cell"><b>為何重要</b>本土採購常重視交期、價格、維修與既有關係，國際品牌不一定占優勢。</div>
-              <div class="cell"><b>下一步可能</b>強化性價比、快速交付、模組家具與中小企業方案。</div>
-              <div class="cell"><b>震旦可學／反制</b>用「集團資源＋設計整合＋售後」建立比單純價格更完整的採購理由。</div>
-            </div>
-          </div>
-
-          <div class="competitor">
-            <div class="competitor-title">ONLY 歐凌辦公家具</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>以辦公家具產品供應與方案服務切入本地客戶。</div>
-              <div class="cell"><b>為何重要</b>對價格敏感型、快速擴編型企業有吸引力。</div>
-              <div class="cell"><b>下一步可能</b>擴大線上詢價、案例展示與套裝式空間方案。</div>
-              <div class="cell"><b>震旦可學／反制</b>建立更清楚的標準套裝與租賃方案，讓業務能快速回應預算型客戶。</div>
-            </div>
-          </div>
-
-          <div class="competitor">
-            <div class="competitor-title">JLL / CBRE / Colliers</div>
-            <div class="competitor-body">
-              <div class="cell"><b>正在做什麼</b>把辦公室需求放進租賃策略、資產管理、混合辦公、員工體驗與永續空間框架。</div>
-              <div class="cell"><b>為何重要</b>他們常在客戶決定搬遷、縮編、擴編、續租前就進入決策流程。</div>
-              <div class="cell"><b>下一步可能</b>推出更多 workplace strategy、occupancy planning、ESG office 與高品質辦公供給報告。</div>
-              <div class="cell"><b>震旦可學／反制</b>與其競爭話語權，也可合作成為家具與空間落地夥伴；內容上要對齊「坪效、體驗、碳、彈性」。</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="s5">
-          <h2>5. 競品發展方向與新知</h2>
-          <ul>
-            <li><strong>人體工學高端化：</strong>Steelcase、MillerKnoll、Haworth 都把椅子從設備升級為健康投資。震旦應把升降桌、人體工學椅、螢幕支架、照明與聲學合併成健康辦公套件。</li>
-            <li><strong>永續材料故事化：</strong>MillerKnoll 的 Aeron 更新顯示，減碳不只放在永續報告，也能變成產品賣點。震旦可把綠建材、可維修、可替換、家具租賃與以租代購包成「循環辦公」方案。</li>
-            <li><strong>辦公室設計顧問化：</strong>JLL、CBRE、Colliers 正把辦公空間視為企業策略工具。震旦與大震設計若只溝通產品，會被顧問端先定義需求。</li>
-            <li><strong>混合辦公常態化：</strong>2026 相關研究指出，辦公室出勤出現週二至週四較高峰的結構性型態，代表空間需要支援尖峰協作與非尖峰彈性使用。</li>
-            <li><strong>聲學與專注需求升溫：</strong>靜音艙不只是設備，而是開放式辦公疲乏下的「專注工作基礎建設」。Halo靜音艙應用場景可擴大到客服、視訊會議、人資面談與機密討論。</li>
-          </ul>
-        </section>
-
-        <section id="s6">
-          <h2>6. 競品下一步可能動作預測</h2>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>競品群</th>
-                <th>可能動作</th>
-                <th>對震旦的壓力</th>
-                <th>建議預先布局</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>國際家具品牌</td>
-                <td>推出低碳材料、經典產品改版、人體工學內容與設計獎項宣傳。</td>
-                <td>提高客戶對「品牌、設計、永續證據」的期待。</td>
-                <td>建立震旦產品永續與健康辦公證據庫。</td>
-              </tr>
-              <tr>
-                <td>本土辦公家具商</td>
-                <td>主打價格、快速交付、套裝方案、線上詢價。</td>
-                <td>搶中小企業與標準化需求。</td>
-                <td>推出入門、中階、高階三種文字清楚的方案包。</td>
-              </tr>
-              <tr>
-                <td>地產與工作場所整合商</td>
-                <td>用報告、白皮書、租賃數據與 workplace strategy 先教育客戶。</td>
-                <td>震旦可能在家具採購階段才被找進來，議價權降低。</td>
-                <td>與大震設計共同發布「台灣企業未來辦公觀察」。</td>
-              </tr>
-              <tr>
-                <td>聲學與智慧辦公新創</td>
-                <td>聚焦靜音艙、感測器、空間使用率、預約系統。</td>
-                <td>分食 Halo靜音艙與智慧辦公話題。</td>
-                <td>把 Halo 與會議預約、工位策略、資安與維護服務組合化。</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section id="s7">
-          <h2>7. 對震旦家具值得借鏡與發展的分析</h2>
-          <h3>值得借鏡</h3>
-          <ul>
-            <li><strong>從產品規格走向決策語言：</strong>競品強項是把產品翻譯成健康、效率、永續、人才體驗與企業形象。震旦應把每個產品頁補上「對人資、總務、財務、ESG、IT 分別代表什麼價值」。</li>
-            <li><strong>用案例建立信任：</strong>國際品牌常用研究與案例放大信任。震旦可用台灣企業案例呈現搬遷、擴編、舊辦翻新、混合辦公導入前後的文字成果。</li>
-            <li><strong>讓大震設計成為前端顧問：</strong>大震設計不應只是工程或設計執行單位，而是需求盤點、空間策略、材料選擇與交付管理的入口。</li>
-          </ul>
-          <h3>可反向定位</h3>
-          <ul>
-            <li><strong>在地交付：</strong>國際品牌的品牌光環強，但震旦可強調本地溝通、快速到場、售後維修與長期服務。</li>
-            <li><strong>總成本透明：</strong>將購置、租賃、維修、換新、搬遷再利用的成本寫成純文字比較，切入財務與總務決策。</li>
-            <li><strong>循環辦公：</strong>以租代購、家具租賃、回收整新、模組再配置能形成比單次銷售更強的 ESG 方案。</li>
-          </ul>
-        </section>
-
-        <section id="s8">
-          <h2>8. ESG、循環經濟與未來辦公議題觀察</h2>
-          <p><span class="tag green">ESG辦公室</span>企業採購將更重視可說明、可追蹤、可稽核的辦公室永續證據。震旦可把綠建材、低揮發材料、耐用維修、二次配置、包材減量與供應鏈管理整理成「ESG 辦公採購文字包」。</p>
-          <p><span class="tag green">循環經濟</span>家具租賃與以租代購不只是付款方式，而是循環經濟入口。若能設計回收、整新、再出租、零件更換與碳／廢棄物估算流程，將比單純低價租賃更有企業策略價值。</p>
-          <p><span class="tag green">健康辦公</span>升降桌、人體工學椅、專注艙、照明、空氣品質與噪音控制可共同支援員工健康。建議用「一天工作旅程」描述產品組合：坐站切換、專注工作、視訊會議、短會協作、休息恢復。</p>
-          <p><span class="tag warn">需注意</span>ESG 敘事若缺少數據或第三方證明，容易被質疑漂綠。震旦在對外內容中應清楚區分「已具證據」、「內部管理中」、「未來目標」。</p>
-        </section>
-
-        <section id="s9">
-          <h2>9. 商機訊號</h2>
-          <table class="table">
+          <span class="pill green">Opportunity</span>
+        </div>
+        <div class="body">
+          <table>
             <thead>
               <tr>
                 <th>商機類型</th>
                 <th>觸發訊號</th>
-                <th>震旦可推方案</th>
-                <th>目標決策者</th>
+                <th>建議方案</th>
+                <th>優先對象</th>
+                <th>轉換說法</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>辦公升級與回辦公室</td>
-                <td>企業希望提高辦公室吸引力與協作效率。</td>
-                <td>NEXt WORK 辦公升級包、協作區、專注區、主管區改造。</td>
-                <td>總務、人資、營運長。</td>
+                <td>辦公升級</td>
+                <td>企業提高回辦公室吸引力，重視協作與員工體驗。</td>
+                <td>協作區、專注區、主管區與共享會議區改造。</td>
+                <td>總務、人資、營運主管</td>
+                <td>用空間提升協作效率與人才留任。</td>
               </tr>
               <tr>
-                <td>健康辦公採購</td>
-                <td>長時間工作、人體工學椅評測與升降桌需求升溫。</td>
-                <td>UP!升降桌＋人體工學椅＋螢幕支架＋教育訓練。</td>
-                <td>人資、職安、採購。</td>
+                <td>健康辦公</td>
+                <td>人體工學、長時間工作與職安健康議題持續升溫。</td>
+                <td>升降桌、人體工學椅、螢幕支架、照明與教育訓練。</td>
+                <td>人資、職安、採購</td>
+                <td>把辦公家具視為健康投資，而不是一次性設備採購。</td>
               </tr>
               <tr>
-                <td>聲學與視訊會議</td>
-                <td>混合辦公帶來噪音、隱私與線上會議品質問題。</td>
-                <td>Halo靜音艙、電話亭、專注艙、會議艙與空間預約流程。</td>
-                <td>IT、總務、客服主管。</td>
+                <td>聲學與混合辦公</td>
+                <td>視訊會議、開放式辦公噪音與隱私需求提高。</td>
+                <td>靜音艙、電話亭、會議艙、空間預約與使用規範。</td>
+                <td>IT、客服、總務</td>
+                <td>降低干擾，讓辦公室同時支援協作與專注。</td>
               </tr>
               <tr>
-                <td>ESG與循環辦公</td>
-                <td>企業需要降低一次性採購與辦公室廢棄物。</td>
-                <td>家具租賃、以租代購、整新回收、綠建材選配。</td>
-                <td>ESG、財務、採購。</td>
+                <td>循環經濟</td>
+                <td>企業希望降低一次性採購、廢棄物與資本支出壓力。</td>
+                <td>家具租賃、以租代購、整新回收、模組再配置。</td>
+                <td>財務、ESG、採購</td>
+                <td>讓辦公室能隨組織變動調整，並具備永續證據。</td>
               </tr>
             </tbody>
           </table>
-        </section>
-
-        <section id="s10">
-          <h2>10. 今日建議行動</h2>
-          <ol>
-            <li><strong>今日完成：</strong>建立「Level 1 低風險」紀錄，標註今日未見中高風險公開負面訊號；若客服、工程、業務端有內部客訴，需補入同一份台帳。</li>
-            <li><strong>48 小時內：</strong>產出一頁式競品回應話術，對 Steelcase、MillerKnoll、Haworth、Okamura、Kokuyo、優美、ONLY 分別列出震旦優勢。</li>
-            <li><strong>本週內：</strong>為 UP!升降桌與 Halo靜音艙補齊「健康辦公、聲學、ESG、維護保固、導入場景」純文字 FAQ。</li>
-            <li><strong>兩週內：</strong>由震旦家具與大震設計共同發布「辦公空間規劃與循環辦公」文章，承接 JLL、CBRE、Colliers 的 workplace strategy 話題。</li>
-            <li><strong>本月內：</strong>設計家具租賃／以租代購的企業方案頁，將財務彈性、循環經濟、搬遷彈性與售後服務寫成可供採購比較的文字內容。</li>
-          </ol>
-          <p><span class="tag warn">需注意</span>若未來出現震旦家具、大震設計相關客訴、工程延誤、產品瑕疵、服務糾紛、ESG 批評或媒體報導，請即刻升級至 Level 2 以上；若涉及多人投訴或媒體查證，標記為「建議內部通報」。</p>
-        </section>
-
-        <section id="sources">
-          <h2>資料來源與監測說明</h2>
-          <p class="small">本頁依 2026-06-12 可公開查詢資料整理，搜尋涵蓋震旦家具、大震設計、震旦集團、AURORA Furniture、AURORA Interior Design、NEXt WORK、辦公家具、辦公室設計、辦公空間規劃、健康辦公、智慧辦公、永續辦公、循環經濟、家具租賃、以租代購、綠建材、ESG辦公室、升降桌、靜音艙、UP!升降桌、Halo靜音艙，以及指定競品與整合商。未能取得付費牆或非公開社群後台資料；風險判讀以公開搜尋結果為準。</p>
-          <ul class="source-list">
-            <li><a href="https://www.techradar.com/best/best-office-chairs">TechRadar: Best office chairs of 2026</a></li>
-            <li><a href="https://www.wallpaper.com/design-interiors/furniture/herman-miller-aeron-office-chair">Wallpaper: Herman Miller Aeron update, June 2026</a></li>
-            <li><a href="https://www.techradar.com/pro/haworth-fern-office-chair-review">TechRadar: Haworth Fern office chair review</a></li>
-            <li><a href="https://www.marketwatch.com/story/office-furniture-maker-steelcase-cut-jobs-in-the-first-quarter-and-more-cuts-could-be-coming-89698f89">MarketWatch: Steelcase demand and restructuring context</a></li>
-            <li><a href="https://www.investopedia.com/this-furniture-maker-says-the-iran-war-is-pressuring-its-outook-its-stock-is-plunging-11934771">Investopedia: MillerKnoll outlook and logistics pressure</a></li>
-            <li><a href="https://arxiv.org/abs/2603.18440">arXiv: Mapping the Midweek Mountain, hybrid work patterns</a></li>
-            <li><a href="https://m.economictimes.com/industry/services/property-/-cstruction/indias-office-market-leads-workplace-transformation-in-asia-pacific/articleshow/125240530.cms">Economic Times: Colliers 2026 Asia Pacific Workplace Insights coverage</a></li>
-            <li><a href="https://m.economictimes.com/industry/services/property-/-cstruction/india-office-market-set-for-next-growth-cycle-led-by-gccs-flex-spaces-and-reits/articleshow/129636484.cms">Economic Times: Colliers 2026 office market growth signals</a></li>
-          </ul>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   </main>
 
   <footer>
-    文字型監測頁。未使用長條圖、折線圖、圓餅圖、地圖或互動視覺化；所有分析均以文字、表格與風險標籤呈現。
+    本頁為靜態 HTML 儀表板，採 Tableau 風格資訊架構與資料視覺化呈現。監測資料為公開訊號整理與策略判讀；若需正式決策，建議搭配內部客服、工程、銷售與媒體監測資料交叉驗證。
   </footer>
 </body>
 </html>
