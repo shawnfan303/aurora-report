@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>家具產業輿情與競品監測 | 2026-06-23</title>
+  <title>家具產業輿情與競品監測 | 2026-06-24</title>
   <style>
     :root {
       --bg: #f5f7fa;
@@ -20,9 +20,7 @@
       --purple: #7a68ab;
       --shadow: 0 10px 30px rgba(22, 33, 43, 0.08);
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       background: var(--bg);
@@ -30,10 +28,8 @@
       font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
       line-height: 1.55;
     }
-
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     header {
       position: sticky;
       top: 0;
@@ -42,14 +38,10 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
-
-    .header-inner,
-    main,
-    footer {
+    .header-inner, main, footer {
       width: min(1440px, calc(100% - 28px));
       margin: 0 auto;
     }
-
     .header-inner {
       display: flex;
       align-items: center;
@@ -57,7 +49,6 @@
       gap: 18px;
       padding: 18px 0;
     }
-
     .eyebrow {
       color: var(--blue);
       font-size: 12px;
@@ -66,28 +57,24 @@
       letter-spacing: 0.08em;
       margin-bottom: 4px;
     }
-
     h1 {
       margin: 0;
       font-size: clamp(24px, 2.3vw, 36px);
       line-height: 1.12;
       font-weight: 780;
     }
-
     .subhead {
       margin-top: 6px;
       color: var(--muted);
       font-size: 14px;
       max-width: 780px;
     }
-
     .toolbar {
       display: grid;
       grid-template-columns: repeat(4, minmax(148px, 1fr));
       gap: 10px;
       width: min(760px, 100%);
     }
-
     .filter {
       padding: 9px 10px;
       background: var(--surface-alt);
@@ -95,7 +82,6 @@
       border-radius: 6px;
       min-height: 58px;
     }
-
     .filter span {
       display: block;
       color: var(--muted);
@@ -103,21 +89,17 @@
       font-weight: 750;
       margin-bottom: 3px;
     }
-
     .filter b {
       display: block;
       font-size: 14px;
       font-weight: 760;
     }
-
     main { padding: 18px 0 36px; }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 14px;
     }
-
     .card {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -125,15 +107,12 @@
       overflow: hidden;
       box-shadow: var(--shadow);
     }
-
     .span-3 { grid-column: span 3; }
     .span-4 { grid-column: span 4; }
     .span-5 { grid-column: span 5; }
-    .span-6 { grid-column: span 6; }
     .span-7 { grid-column: span 7; }
     .span-8 { grid-column: span 8; }
     .span-12 { grid-column: span 12; }
-
     .card-head {
       display: flex;
       justify-content: space-between;
@@ -142,21 +121,17 @@
       padding: 14px 16px 11px;
       border-bottom: 1px solid var(--line);
     }
-
     .card-head h2 {
       margin: 0;
       font-size: 17px;
       line-height: 1.25;
     }
-
     .caption {
       margin-top: 4px;
       color: var(--muted);
       font-size: 12px;
     }
-
     .body { padding: 14px 16px 16px; }
-
     .pill {
       display: inline-flex;
       align-items: center;
@@ -169,37 +144,30 @@
       white-space: nowrap;
       background: var(--blue);
     }
-
     .pill.green { background: var(--green); }
     .pill.orange { background: var(--orange); }
     .pill.red { background: var(--red); }
     .pill.purple { background: var(--purple); }
     .pill.gray { background: #6b7785; }
-
     .kpi {
       min-height: 178px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-
     .kpi-value {
       margin: 4px 0 10px;
       font-size: 36px;
       font-weight: 790;
       line-height: 1;
     }
-
-    .kpi small,
-    .note {
+    .note, .insight-copy, .source-list, .strategy p {
       color: var(--muted);
       font-size: 13px;
     }
-
     .delta {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       width: fit-content;
       margin-bottom: 8px;
       padding: 4px 8px;
@@ -209,11 +177,9 @@
       color: #25643b;
       background: #e9f6ee;
     }
-
     .delta.warn { color: #9b5b13; background: #fff1e1; }
     .delta.risk { color: #9f2f2f; background: #fdeaea; }
     .delta.neutral { color: #495663; background: #eef2f6; }
-
     .insight-list {
       display: grid;
       gap: 11px;
@@ -221,7 +187,6 @@
       padding: 0;
       list-style: none;
     }
-
     .insight-list li {
       display: grid;
       grid-template-columns: 92px 1fr;
@@ -229,12 +194,7 @@
       padding-bottom: 11px;
       border-bottom: 1px solid var(--line);
     }
-
-    .insight-list li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
+    .insight-list li:last-child { padding-bottom: 0; border-bottom: 0; }
     .tag {
       width: fit-content;
       height: fit-content;
@@ -246,18 +206,11 @@
       font-size: 12px;
       font-weight: 760;
     }
-
     .insight-title {
       margin: 0 0 3px;
       font-weight: 780;
     }
-
-    .insight-copy {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
+    .insight-copy { margin: 0; }
     .bar-row {
       display: grid;
       grid-template-columns: 128px 1fr 56px;
@@ -266,48 +219,39 @@
       margin: 11px 0;
       font-size: 13px;
     }
-
     .track {
       height: 10px;
       border-radius: 999px;
       background: #e8edf3;
       overflow: hidden;
     }
-
     .bar {
       height: 100%;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--blue), var(--cyan));
     }
-
     .bar.green { background: linear-gradient(90deg, var(--green), #8bc99d); }
     .bar.orange { background: linear-gradient(90deg, var(--orange), #f1b166); }
     .bar.purple { background: linear-gradient(90deg, var(--purple), #a895d1); }
     .bar.red { background: linear-gradient(90deg, var(--red), #e58d8d); }
-
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
-
-    th,
-    td {
+    th, td {
       padding: 10px 9px;
       border-bottom: 1px solid var(--line);
       text-align: left;
       vertical-align: top;
     }
-
     th {
       color: var(--muted);
       font-size: 12px;
       font-weight: 780;
       background: var(--surface-alt);
     }
-
     tr:last-child td { border-bottom: 0; }
-
     .heatmap {
       display: grid;
       grid-template-columns: 1.05fr repeat(5, 1fr);
@@ -316,14 +260,12 @@
       overflow: hidden;
       font-size: 13px;
     }
-
     .heatmap div {
       padding: 10px;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       min-height: 56px;
     }
-
     .heatmap div:nth-child(6n) { border-right: 0; }
     .heatmap div:nth-last-child(-n + 6) { border-bottom: 0; }
     .heatmap .head {
@@ -332,18 +274,15 @@
       font-weight: 780;
       min-height: auto;
     }
-
     .score-high { background: #e9f6ee; color: #25643b; font-weight: 760; }
     .score-mid { background: #fff1e1; color: #9b5b13; font-weight: 760; }
     .score-low { background: #eef2f6; color: #495663; font-weight: 760; }
     .score-watch { background: #fdeaea; color: #9f2f2f; font-weight: 760; }
-
     .strategy-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
-
     .strategy {
       border: 1px solid var(--line);
       background: var(--surface-alt);
@@ -351,42 +290,30 @@
       padding: 12px;
       min-height: 148px;
     }
-
     .strategy h3 {
       margin: 7px 0 5px;
       font-size: 15px;
     }
-
-    .strategy p,
-    .source-list {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
+    .strategy p, .source-list { margin: 0; }
     .source-list { padding-left: 18px; }
-
     footer {
       padding: 0 0 28px;
       color: var(--muted);
       font-size: 12px;
     }
-
     @media (max-width: 1120px) {
       .header-inner { align-items: flex-start; flex-direction: column; }
       .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .span-3, .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 12; }
+      .span-3, .span-4, .span-5, .span-7, .span-8 { grid-column: span 12; }
       .strategy-grid { grid-template-columns: 1fr; }
       .heatmap { grid-template-columns: 1fr; }
       .heatmap div { border-right: 0; }
       .heatmap .head:not(:first-child) { display: none; }
     }
-
     @media (max-width: 640px) {
       .header-inner, main, footer { width: min(100% - 20px, 1440px); }
       .toolbar { grid-template-columns: 1fr; }
-      .insight-list li,
-      .bar-row { grid-template-columns: 1fr; }
+      .insight-list li, .bar-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -394,159 +321,147 @@
   <header>
     <div class="header-inner">
       <div>
-        <div class="eyebrow">Tableau-style monitoring dashboard</div>
+        <div class="eyebrow">Furniture Industry Intelligence</div>
         <h1>家具產業輿情與競品監測</h1>
-        <div class="subhead">2026-06-23 每日更新；今天為每月 23 日，整合每日輿情與月度策略預判。主體採家具產業視角，競品名稱僅用於監測、比較與來源區。</div>
+        <div class="subhead">2026-06-24 每日報告｜GitHub Pages 單檔 HTML｜主體聚焦家具產業，競品名稱僅用於監測、比較與來源區。</div>
       </div>
-      <div class="toolbar" aria-label="report filters">
-        <div class="filter"><span>報告日期</span><b>2026-06-23</b></div>
-        <div class="filter"><span>報告模式</span><b>每日＋月度策略預判</b></div>
-        <div class="filter"><span>展示層</span><b>GitHub Pages HTML</b></div>
-        <div class="filter"><span>資料時間帶</span><b>Asia/Taipei</b></div>
+      <div class="toolbar" aria-label="report metadata">
+        <div class="filter"><span>Report date</span><b>2026-06-24</b></div>
+        <div class="filter"><span>Mode</span><b>每日報告</b></div>
+        <div class="filter"><span>Primary audience</span><b>經營／營業／幕僚主管</b></div>
+        <div class="filter"><span>Core module</span><b>競品即時雷達</b></div>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="grid" aria-label="top metrics">
-      <article class="card span-3">
+    <section class="grid" aria-label="management dashboard">
+      <article class="card span-3 kpi">
         <div class="card-head">
           <div>
-            <h2>外部訊號密度</h2>
-            <div class="caption">近 30 日公開資訊</div>
+            <h2>高相關訊號</h2>
+            <div class="caption">今日納入管理判讀</div>
           </div>
-          <span class="pill green">高</span>
+          <span class="pill">7</span>
         </div>
-        <div class="body kpi">
-          <div>
-            <div class="delta">競品＋設計週＋零售</div>
-            <div class="kpi-value">9</div>
-            <small>本次納入 9 類訊號：工作場域、混合協作、永續材料、設計典藏、零售需求、展會、顧問服務、數位規格、月度預判。</small>
-          </div>
-          <small>管理解讀：家具產業討論正由單品轉向「空間策略、證據與體驗」。</small>
+        <div class="body">
+          <div class="kpi-value">7</div>
+          <div class="delta">競品訊號 4 則</div>
+          <p class="note">訊號集中在工作場域顧問化、經典產品再包裝、AI 空間提案、會議室科技摩擦與亞太辦公需求。</p>
         </div>
       </article>
 
-      <article class="card span-3">
+      <article class="card span-3 kpi">
         <div class="card-head">
           <div>
-            <h2>競品壓力</h2>
+            <h2>競品影響</h2>
             <div class="caption">對台灣 B2B 辦公家具</div>
           </div>
           <span class="pill orange">中高</span>
         </div>
-        <div class="body kpi">
-          <div>
-            <div class="delta warn">方案化競爭升溫</div>
-            <div class="kpi-value">4.1</div>
-            <small>Steelcase 以社群式辦公、Revit 規格工具與 WELL 產品對位；MillerKnoll 以 Aeron 更新連結色彩、包容性與材料證據。</small>
-          </div>
-          <small>此為判讀分數，不代表市占、銷售或財務資料。</small>
+        <div class="body">
+          <div class="kpi-value">4/5</div>
+          <div class="delta warn">方案化壓力持續</div>
+          <p class="note">國際品牌與顧問公司正把家具、空間、科技、永續與工作模式放在同一個決策框架內。</p>
         </div>
       </article>
 
-      <article class="card span-3">
+      <article class="card span-3 kpi">
         <div class="card-head">
           <div>
-            <h2>永續證據要求</h2>
-            <div class="caption">材料、碳、循環與認證</div>
+            <h2>ESG 證據壓力</h2>
+            <div class="caption">材料、循環、認證</div>
           </div>
-          <span class="pill purple">上升</span>
+          <span class="pill red">上升</span>
         </div>
-        <div class="body kpi">
-          <div>
-            <div class="delta neutral">單品級敘事</div>
-            <div class="kpi-value">12%</div>
-            <small>Wallpaper 報導 Herman Miller Aeron 更新提及材料與結構調整，使全球平均 embodied carbon footprint 估計降低 12%。</small>
-          </div>
-          <small>管理解讀：ESG 採購溝通需回到可核對的產品資料，而非品牌口號。</small>
+        <div class="body">
+          <div class="kpi-value">高</div>
+          <div class="delta risk">需回到來源佐證</div>
+          <p class="note">Steelcase 與 Aeron 訊號都包含材料、循環與健康標準敘事；未有官方資料時不可延伸成自身 ESG 成效。</p>
         </div>
       </article>
 
-      <article class="card span-3">
+      <article class="card span-3 kpi">
         <div class="card-head">
           <div>
-            <h2>月度策略預判</h2>
-            <div class="caption">2026-06 下旬至 2026-07</div>
+            <h2>本日報告模式</h2>
+            <div class="caption">Asia/Taipei 日期規則</div>
           </div>
-          <span class="pill red">需確認</span>
+          <span class="pill purple">週三</span>
         </div>
-        <div class="body kpi">
-          <div>
-            <div class="delta risk">三條戰場</div>
-            <div class="kpi-value">3</div>
-            <small>預判焦點：工作場域顧問化、永續證據產品化、設計典藏與場景體驗內容化。</small>
-          </div>
-          <small>管理解讀：需要確認資源是否投入在能被客戶快速理解與驗證的素材上。</small>
+        <div class="body">
+          <div class="kpi-value">日</div>
+          <div class="delta neutral">每日報告</div>
+          <p class="note">今天不是週一，也不是每月 23 日；不整合週報、月度策略預判或年度彙整。</p>
         </div>
       </article>
     </section>
 
     <section class="grid" style="margin-top:14px" aria-label="executive brief">
-      <article class="card span-8">
+      <article class="card span-7">
         <div class="card-head">
           <div>
             <h2>Executive Brief</h2>
-            <div class="caption">最新發展、證據與可能意涵</div>
+            <div class="caption">今日最值得主管先掌握的外部訊號</div>
           </div>
-          <span class="pill">Daily brief</span>
+          <span class="pill">Top signals</span>
         </div>
         <div class="body">
           <ul class="insight-list">
             <li>
               <span class="tag">競品</span>
               <div>
-                <p class="insight-title">Steelcase 把辦公空間定義為降低認知負荷與建立社群感的績效工具。</p>
-                <p class="insight-copy">官方 6 月 8 日 Chicago Design Week 訊息將 Community-Based Design、混合會議 Ocular Frame、SmartTools for Revit、循環與 WELL 對位放在同一敘事。可能意涵：競爭焦點正從家具清單轉向「工作方式＋設計工具＋健康證據」的整體方案。</p>
+                <p class="insight-title">Steelcase 將「工作場域」明確包裝成認知負荷、社群連結、績效與 WELL／循環議題。</p>
+                <p class="insight-copy">官方 Chicago Design Week 2026 資訊提到 Community-Based Design、Ocular Frame、SmartTools for Revit、循環設計與 WELL 相關標章。可能意涵：競爭焦點不是單張桌椅，而是誰能把辦公投資說成管理效率與人才體驗的解方。</p>
               </div>
             </li>
             <li>
               <span class="tag">競品</span>
               <div>
-                <p class="insight-title">MillerKnoll 以 Aeron 更新強化高端辦公椅的永續與生活化語言。</p>
-                <p class="insight-copy">Wallpaper 6 月 2 日報導指出 Aeron 新色、尺寸包容性、海洋塑膠、再生材料與 bio-based nylon 等更新，並連結到 12% 碳足跡降低估計。可能意涵：高端座椅競爭會更重視「可被媒體與採購理解的產品證據」。</p>
+                <p class="insight-title">MillerKnoll / Herman Miller 透過 Aeron 更新，把經典人體工學座椅重新連到色彩、包容性與永續材料。</p>
+                <p class="insight-copy">Wallpaper 報導 Aeron 新增 Jasper、Nightfall 色系，並提到材料、尺寸包容性與碳足跡降低敘事。可能意涵：高端座椅競爭正在把「功能」延伸成「設計語言＋產品壽命＋可查證環境資料」。</p>
               </div>
             </li>
             <li>
-              <span class="tag">設計</span>
+              <span class="tag">顧問</span>
               <div>
-                <p class="insight-title">SOM / Ikonstudio 復刻 Halston 辦公椅，Haworth 也被點名將推 archival collection。</p>
-                <p class="insight-copy">Wallpaper 6 月 19 日報導 SOM79 椅桌已於 Chicago Design Days 推出，並提到 SOM 後續將與 Form Portfolios、Haworth 合作。可能意涵：設計典藏、建築師背書與故事型產品，正在成為辦公家具內容資產與高端提案語言。</p>
+                <p class="insight-title">Gensler 的 AI 設計流程訊號，顯示空間顧問正在把提案能力推向模擬、敘事與快速方案探索。</p>
+                <p class="insight-copy">Business Insider 報導 Gensler 已把 AI 用於多數專案中的設計探索、環境模擬與提案敘事。可能意涵：未來客戶可能更期待在家具提案階段看到空間情境、使用者行為與故事化呈現，而不是只看平面配置與報價。</p>
               </div>
             </li>
             <li>
               <span class="tag">市場</span>
               <div>
-                <p class="insight-title">美國與英國家居零售訊號仍有短期韌性，但不宜解讀為全面復甦。</p>
-                <p class="insight-copy">AP 6 月 18 日報導美國 5 月零售月增 0.9%，家具店與線上銷售被點名成長；The Guardian 6 月 19 日引述 ONS 指英國家居用品店月增 3.2%。可能意涵：需求有可開發窗口，但仍需觀察通膨、促銷與季節因素。</p>
+                <p class="insight-title">混合辦公下一個痛點從「要不要回辦公室」轉向「會議室是否能低摩擦地支援多平台協作」。</p>
+                <p class="insight-copy">TechRadar Pro 指出 2026 年會議空間需支援 Teams、Zoom、Google Meet、BYOD / BYOM 與 AI 摘要等能力。可能意涵：家具提案中的會議空間、視訊設備、線材管理與聲學需求會更常被客戶一起比較。</p>
               </div>
             </li>
             <li>
-              <span class="tag">趨勢</span>
+              <span class="tag">亞太</span>
               <div>
-                <p class="insight-title">家具設計討論轉向工藝、耐用、材料責任與「人味」；這可補強辦公空間的情感價值。</p>
-                <p class="insight-copy">Veranda、Wallpaper 與 3 Days of Design 相關報導均指向工藝、purpose、longevity、responsible sourcing。可能意涵：B2B 提案若只談效率會偏窄，應補上員工體驗、品牌文化與空間質感的可視化素材。</p>
+                <p class="insight-title">Colliers 相關報導指出印度辦公需求由 GCC、彈性辦公、綠色科技辦公與資產輕量化推動。</p>
+                <p class="insight-copy">雖然該訊號聚焦印度，但對台灣 B2B 市場有參考價值：企業對辦公空間的評估語言可能更偏向敏捷、成本效率、ESG 與科技賦能，而非單純擴張坪數。</p>
               </div>
             </li>
           </ul>
         </div>
       </article>
 
-      <article class="card span-4">
+      <article class="card span-5">
         <div class="card-head">
           <div>
-            <h2>Management Dashboard</h2>
-            <div class="caption">5 為最高；非銷售或市占資料</div>
+            <h2>Latest Signals</h2>
+            <div class="caption">按管理相關性排序，不平均羅列來源</div>
           </div>
-          <span class="pill gray">Signal score</span>
+          <span class="pill green">Signal map</span>
         </div>
         <div class="body">
-          <div class="bar-row"><span>辦公轉型</span><div class="track"><div class="bar" style="width:88%"></div></div><b>4.4</b></div>
-          <div class="bar-row"><span>競品活躍度</span><div class="track"><div class="bar orange" style="width:82%"></div></div><b>4.1</b></div>
-          <div class="bar-row"><span>永續證據</span><div class="track"><div class="bar purple" style="width:76%"></div></div><b>3.8</b></div>
-          <div class="bar-row"><span>需求韌性</span><div class="track"><div class="bar green" style="width:72%"></div></div><b>3.6</b></div>
-          <div class="bar-row"><span>景氣風險</span><div class="track"><div class="bar red" style="width:66%"></div></div><b>3.3</b></div>
-          <p class="note">管理解讀：最值得追蹤的不是單一產品，而是競品如何把產品、研究、設計工具與 ESG 證據包裝成可採購的整體方案。</p>
+          <div class="bar-row"><b>顧問式服務</b><div class="track"><div class="bar green" style="width:90%"></div></div><span>高</span></div>
+          <div class="bar-row"><b>健康辦公</b><div class="track"><div class="bar" style="width:86%"></div></div><span>高</span></div>
+          <div class="bar-row"><b>智慧會議室</b><div class="track"><div class="bar purple" style="width:80%"></div></div><span>高</span></div>
+          <div class="bar-row"><b>ESG／循環</b><div class="track"><div class="bar orange" style="width:78%"></div></div><span>中高</span></div>
+          <div class="bar-row"><b>亞太辦公需求</b><div class="track"><div class="bar red" style="width:62%"></div></div><span>中</span></div>
+          <p class="note">以上為公開訊號對台灣 B2B 辦公家具的管理相關性判讀，不代表市場份額、銷售預測或品牌排名。</p>
         </div>
       </article>
     </section>
@@ -556,78 +471,111 @@
         <div class="card-head">
           <div>
             <h2>Competitor Intelligence / 競品即時雷達</h2>
-            <div class="caption">威脅與機會為判讀分數：高／中／低，不代表市場份額或銷售數據</div>
+            <div class="caption">核心價值：競品正在做什麼、為什麼重要、可能影響哪些戰場</div>
           </div>
-          <span class="pill purple">Core module</span>
+          <span class="pill orange">Radar</span>
         </div>
         <div class="body">
           <div class="heatmap" role="table" aria-label="competitor intelligence heatmap">
             <div class="head">競品／類型</div>
             <div class="head">最新動態</div>
             <div class="head">對位戰場</div>
-            <div class="head">威脅</div>
-            <div class="head">可借鏡點</div>
-            <div class="head">待追蹤</div>
-            <div>Steelcase / HNI</div>
-            <div class="score-high">Chicago Design Week：社群式辦公、混合會議、Revit 規格、循環與 WELL 對位。</div>
-            <div>ABW／高效辦公、智慧辦公、健康辦公、ESG 證據、設計師工具鏈。</div>
-            <div class="score-high">高</div>
-            <div>把研究、產品與規格工具整合成主管與設計師都能理解的敘事。</div>
-            <div class="score-watch">HNI 整合後通路協同、亞洲市場展示、WELL 產品清單。</div>
-            <div>MillerKnoll / Herman Miller</div>
-            <div class="score-high">Aeron 新色、材料更新、尺寸包容性與 12% 碳足跡降低敘事受到設計媒體關注。</div>
-            <div>健康辦公、設計典藏、ESG／循環經濟、高端座椅。</div>
-            <div class="score-high">高</div>
-            <div>把經典產品更新包裝成「美學＋包容性＋材料證據」的高端話題。</div>
-            <div class="score-watch">官方產品環境資料、亞洲上市節奏、採購端是否要求同級證據。</div>
-            <div>Haworth / SOM / Form Portfolios</div>
-            <div class="score-mid">SOM79 復刻由 Ikonstudio 推出；媒體提到 SOM 之後將與 Haworth 推 archival collection。</div>
-            <div>設計典藏、建築師合作、展廳體驗、品牌內容。</div>
-            <div class="score-mid">中</div>
-            <div>以建築師與歷史故事提高產品辨識度，適合轉化為展廳導覽與高端提案語言。</div>
-            <div class="score-watch">Haworth 官方發布、產品品類、定價與商用指定方式。</div>
-            <div>Okamura / Kokuyo / Vitra</div>
-            <div class="score-low">本次未找到 6 月 23 日前後高強度新訊；仍屬亞洲與設計系競品監測名單。</div>
-            <div>亞洲辦公、設計系統、彈性辦公、產品細節。</div>
-            <div class="score-mid">中</div>
-            <div>若其以日本工藝、細節品質與空間效率切入，對台灣客戶具有近距離參考價值。</div>
-            <div class="score-watch">日本官方新品、台灣經銷動態、展會與案例資料。</div>
-            <div>JLL / CBRE / Colliers / Gensler</div>
-            <div class="score-mid">辦公策略、租戶體驗與 workplace research 持續影響企業空間決策。</div>
-            <div>工作場域顧問服務、空間策略、員工體驗、房地產效率。</div>
-            <div class="score-mid">中高</div>
-            <div>他們掌握決策語言，家具品牌需能接上「策略、數據、導入」而不只提供產品。</div>
-            <div class="score-watch">2026 workplace reports、台灣辦公市場報告、企業搬遷與改裝案例。</div>
+            <div class="head">威脅／機會</div>
+            <div class="head">對營業主管可用資訊</div>
+            <div class="head">對幕僚主管可用資訊</div>
+
+            <div><b>Steelcase</b><br><span class="note">國際辦公家具</span></div>
+            <div>Chicago Design Week 2026 展示 Community-Based Design、Ocular Frame、SmartTools for Revit、循環設計與 WELL 相關敘事。</div>
+            <div>健康辦公、ABW／高效辦公、智慧辦公、ESG／循環、顧問式服務、混合會議。</div>
+            <div class="score-high">高：把產品、研究、數位工具與健康標準連成方案，提升客戶對家具商的服務期待。</div>
+            <div>客戶問「為何要更新辦公室」時，可從專注、協作、社群感、混合會議效率與員工體驗切入。</div>
+            <div>補強工作場域研究語言、BIM/Revit 素材、WELL 對應證據與展廳情境腳本；ESG 數據需逐項回來源。</div>
+
+            <div><b>MillerKnoll / Herman Miller</b><br><span class="note">國際辦公家具</span></div>
+            <div>Aeron 推出新色、材料更新與尺寸包容性敘事，並以經典座椅的長壽命與環境資料強化品牌內容。</div>
+            <div>健康辦公、設計典藏、ESG／循環、產品壽命、高端座椅提案。</div>
+            <div class="score-high">高：單一產品即可成為設計、人體工學與永續採購的比較基準。</div>
+            <div>面對國際座椅比較，可回到在地導入、整體配置、售後維運、交期與客戶空間情境。</div>
+            <div>建立高端座椅比較頁：人體工學、材料、保固、維修、環境資料、客戶情境與可替代選項。</div>
+
+            <div><b>Haworth / Okamura / Kokuyo / Vitra</b><br><span class="note">國際與亞洲品牌</span></div>
+            <div>今日未見足夠高相關單一重大公開訊號；仍需追蹤 6-7 月新品、展會、亞洲通路、設計合作與 ESG 文件。</div>
+            <div>ABW／高效辦公、設計典藏、展廳體驗、區域市場、健康辦公。</div>
+            <div class="score-mid">中：本日事件強度不高，但品牌長期會用設計、通路與研究內容形成比較壓力。</div>
+            <div>若客戶提到日系／歐系品牌，回到空間效率、亞洲案例、在地服務、維修與導入完整度。</div>
+            <div>建立固定追蹤模板：新品、案例、通路、材料文件、台灣可取得性、展示情境與價格帶。</div>
+
+            <div><b>Gensler</b><br><span class="note">工作場域顧問與設計公司</span></div>
+            <div>媒體報導其將 AI 用於設計概念、環境模擬、空間使用情境與提案敘事，強化前期方案探索能力。</div>
+            <div>顧問式服務、數位工具、展廳體驗、客戶提案、工作場域轉型。</div>
+            <div class="score-high">高：可能先於家具商定義客戶問題與方案語言，家具提案若只停在產品層會被動。</div>
+            <div>客戶期待更快看到空間情境時，可準備「問題、配置、產品組合、使用情境、導入步驟」的簡短提案模組。</div>
+            <div>累積可視化情境、使用者旅程、前後比較、導覽腳本與 AI 輔助提案的內部流程規範。</div>
+
+            <div><b>JLL / CBRE / Colliers</b><br><span class="note">不動產與工作場域服務</span></div>
+            <div>Colliers 相關報導指出辦公需求受 GCC、彈性辦公、綠色科技辦公、資產輕量化與現代化改造帶動。</div>
+            <div>企業採購、ESG 採購、彈性辦公、FaaS／租賃、空間策略。</div>
+            <div class="score-high">高：顧問公司正在把空間決策語言轉向敏捷、效率、ESG 與資產策略。</div>
+            <div>可把家具討論接到租賃彈性、階段導入、會議效率、員工體驗與總持有成本。</div>
+            <div>整理可支援顧問語言的案例、導入流程、租賃／採購比較、ESG 文件與可量化管理問題。</div>
+
+            <div><b>本土／區域競品</b><br><span class="note">優美、ONLY 等</span></div>
+            <div>今日公開來源未見重大可驗證事件；仍需追蹤促銷、通路、政府標案、展廳活動、案例與社群聲量。</div>
+            <div>價格／促銷、交期、在地服務、標案、系統家具、展廳活動。</div>
+            <div class="score-watch">需追蹤：本土競品可能用價格、服務速度、通路距離與標案經驗形成壓力。</div>
+            <div>準備價值型話術：總持有成本、配置效率、售後維運、案例可信度與專案管理能力。</div>
+            <div>補本土競品公開活動與標案資料；不要在無來源下推論銷售、份額或客戶流失。</div>
           </div>
         </div>
       </article>
     </section>
 
-    <section class="grid" style="margin-top:14px" aria-label="monthly outlook">
+    <section class="grid" style="margin-top:14px" aria-label="market implication">
       <article class="card span-7">
         <div class="card-head">
           <div>
-            <h2>月度策略預判</h2>
-            <div class="caption">2026-06 下旬至 2026-07：合理推論，需持續以公開資訊驗證</div>
+            <h2>Market / Competitor Signal</h2>
+            <div class="caption">高相關訊號對家具產業的可能影響</div>
           </div>
-          <span class="pill orange">Monthly outlook</span>
+          <span class="pill purple">Implication</span>
         </div>
-        <div class="body strategy-grid">
-          <div class="strategy">
-            <span class="pill">1</span>
-            <h3>工作場域顧問化會繼續升溫。</h3>
-            <p>競品將辦公室定位為績效、社群感與認知負荷管理工具。值得管理層確認的問題是：客戶是否已期待家具供應商提供更完整的空間策略語言？</p>
-          </div>
-          <div class="strategy">
-            <span class="pill green">2</span>
-            <h3>ESG 採購會更要求產品層級證據。</h3>
-            <p>材料、再生比例、維修延壽、碳足跡與第三方認證會成為競品話術。需要觀察的是：客戶是否開始要求可比對的產品環境資料？</p>
-          </div>
-          <div class="strategy">
-            <span class="pill purple">3</span>
-            <h3>設計故事與展廳體驗會成為高端差異化。</h3>
-            <p>SOM79、Aeron 與 3 Days of Design 顯示，產品背後的設計脈絡可形成內容資產。這是否代表展廳需要更強的策展式導覽與案例化素材？</p>
-          </div>
+        <div class="body">
+          <table>
+            <thead>
+              <tr>
+                <th>訊號</th>
+                <th>威脅／可借鏡點</th>
+                <th>需要持續觀察</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>工作場域被重新定義為認知負荷、社群與績效工具。</td>
+                <td>競品能把辦公室投資連到管理議題，提升方案價值與顧問服務入口。</td>
+                <td>台灣企業是否開始要求員工體驗、專注場景、混合會議與空間成效的前期診斷。</td>
+              </tr>
+              <tr>
+                <td>經典產品透過色彩、材料與包容性再包裝。</td>
+                <td>高端座椅不只比規格，還比設計故事、長期維護、材料來源與環境資料完整度。</td>
+                <td>客戶是否開始要求產品環境聲明、再生材料比例、維修延壽與保固資料。</td>
+              </tr>
+              <tr>
+                <td>顧問公司使用 AI 強化提案速度與敘事。</td>
+                <td>空間提案門檻提高，家具商若缺乏情境化、可視化與診斷式內容，會被定位成後段供應商。</td>
+                <td>是否需要建立標準化提案模組與 AI 輔助工作流程，讓業務更快回應客戶場景問題。</td>
+              </tr>
+              <tr>
+                <td>會議室科技摩擦成為混合辦公的具體痛點。</td>
+                <td>智慧辦公不應只講 IoT，而要回到客戶每天使用的會議、音視訊、線材、聲學與操作負擔。</td>
+                <td>客戶是否把 AV、IT、家具、隔音與會議室預約納入同一個採購討論。</td>
+              </tr>
+              <tr>
+                <td>亞太辦公需求訊號偏向彈性、綠色科技與資產輕量化。</td>
+                <td>辦公家具提案可借鏡「敏捷導入、可調整、可維運、可佐證」語言，但不宜直接套用印度市場數字。</td>
+                <td>台灣企業是否出現更多彈性辦公、分階段擴充、租賃或改造既有空間的需求。</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </article>
 
@@ -644,22 +592,22 @@
             <li>
               <span class="tag">經營</span>
               <div>
-                <p class="insight-title">決策問題</p>
-                <p class="insight-copy">這是否代表競爭焦點正在從單品轉向整體工作場域方案？是否需要重新檢視 ESG 證據、顧問服務與展廳展示的資料完整度？</p>
+                <p class="insight-title">引導式判讀</p>
+                <p class="insight-copy">這是否代表競爭焦點正在從家具單品轉向「工作場域方案＋資料證據＋數位工具」？需要觀察的是，客戶是否已把辦公投資視為人才、效率與 ESG 採購的交集。</p>
               </div>
             </li>
             <li>
               <span class="tag">營業</span>
               <div>
                 <p class="insight-title">客戶切入</p>
-                <p class="insight-copy">可用「混合會議、專注恢復、員工健康、ESG 採購證據」切入；若客戶提到國際品牌，可回到在地服務、整體導入與後續維運。</p>
+                <p class="insight-copy">可用混合會議摩擦、專注效率、員工健康、ESG 採購資料與彈性導入切入。若客戶提到國際品牌，可回到在地服務、完整導入、售後維運與情境整合。</p>
               </div>
             </li>
             <li>
               <span class="tag">幕僚</span>
               <div>
                 <p class="insight-title">素材缺口</p>
-                <p class="insight-copy">優先補產品材料資料、認證清單、空間情境圖、競品對位表、設計故事與展廳導覽腳本，讓業務可快速轉用。</p>
+                <p class="insight-copy">優先補座椅與系統家具證據表、智慧會議室情境圖、ESG 資料邊界、展廳導覽腳本、競品對位表與提案模組。</p>
               </div>
             </li>
           </ul>
@@ -690,25 +638,31 @@
               <tr>
                 <td>高</td>
                 <td>幕僚：產品／行銷</td>
-                <td>建立「健康辦公、ABW、智慧辦公、ESG」四類產品證據表，標註已知事實、合理推論與待確認資料。</td>
+                <td>建立「高端座椅與工作站證據表」，欄位包含人體工學、材料、保固、維修、認證、環境資料與可用來源。</td>
                 <td>2 週內</td>
               </tr>
               <tr>
                 <td>高</td>
                 <td>營業主管</td>
-                <td>整理 3 組客戶問答：為什麼需要混合會議空間、如何說明員工健康價值、ESG 採購可要求哪些資料。</td>
+                <td>整理 3 組客戶問答：混合會議室為何要整合家具與 AV、健康辦公如何說明、ESG 採購可要求哪些資料。</td>
                 <td>1 週內</td>
               </tr>
               <tr>
                 <td>中</td>
                 <td>幕僚：展廳／內容</td>
-                <td>把展廳導覽改成「情境戰場」：專注、協作、恢復、主管會議、ESG 採購、設計故事。</td>
+                <td>把展廳導覽改成「問題場景」：專注、協作、恢復、主管會議、混合會議、ESG 採購與設計故事。</td>
                 <td>3 週內</td>
               </tr>
               <tr>
                 <td>中</td>
+                <td>幕僚：數位／企劃</td>
+                <td>評估 AI 輔助提案流程：用既有案例與情境圖快速產生客戶版頁面，但保留人工審核與來源標註。</td>
+                <td>4 週內</td>
+              </tr>
+              <tr>
+                <td>中</td>
                 <td>經營管理層</td>
-                <td>討論題：若競品把工具鏈與顧問服務納入產品敘事，我們的資源應優先補在資料、展示、業務訓練或數位工具？</td>
+                <td>決策討論題：若競品與顧問公司持續把空間決策升級為管理議題，我們優先補強資料證據、顧問流程、展廳體驗或數位工具？</td>
                 <td>月會討論</td>
               </tr>
             </tbody>
@@ -726,11 +680,11 @@
         </div>
         <div class="body">
           <ul class="source-list">
-            <li>Steelcase：Community-Based Design 研究原文與 WELL 對位產品清單。</li>
-            <li>MillerKnoll：Aeron 更新的官方環境資料與亞洲上市訊息。</li>
-            <li>Haworth：SOM / Form Portfolios archival collection 官方發布。</li>
-            <li>Okamura / Kokuyo / Vitra：6-7 月亞洲展會、新品、台灣經銷與案例訊號。</li>
-            <li>JLL / CBRE / Colliers / Gensler：2026 workplace 或 occupier report 對企業空間決策語言的影響。</li>
+            <li>Steelcase：Community-Based Design 研究原文、WELL 對應產品清單、SmartTools for Revit 實際功能。</li>
+            <li>MillerKnoll：Aeron 更新的官方環境資料、亞洲上市訊息、台灣通路是否同步導入。</li>
+            <li>Gensler / JLL / CBRE / Colliers：2026 workplace、occupier、AI design 與 flex office report 對企業採購語言的影響。</li>
+            <li>Haworth / Okamura / Kokuyo / Vitra：6-7 月新品、展會、亞洲案例、ESG 文件與設計合作。</li>
+            <li>本土／區域競品：優美、ONLY 等通路活動、政府標案、促銷、展廳活動與公開案例。</li>
           </ul>
         </div>
       </article>
@@ -759,44 +713,32 @@
               <tr>
                 <td><a href="https://www.steelcase.com/press-releases/steelcase-showcases-workplace-design-strategies-that-support-wellbeing-and-performance-at-chicago-design-week-2026/">Steelcase Press Release</a></td>
                 <td>2026-06-08</td>
-                <td>Chicago Design Week：Community-Based Design、Ocular Frame、SmartTools for Revit、循環與 WELL 相關訊號。</td>
+                <td>Chicago Design Week 2026：Community-Based Design、Ocular Frame、SmartTools for Revit、循環設計與 WELL 相關訊號。</td>
                 <td>高，品牌官方發布；需注意為品牌敘事。</td>
               </tr>
               <tr>
                 <td><a href="https://www.wallpaper.com/design-interiors/furniture/herman-miller-aeron-office-chair">Wallpaper / Herman Miller Aeron</a></td>
                 <td>2026-06-02</td>
-                <td>Aeron 新色、材料更新、尺寸包容性、海洋塑膠／再生材料與 12% 碳足跡降低敘事。</td>
+                <td>Aeron 新色、材料更新、尺寸包容性、產品壽命與碳足跡降低敘事。</td>
                 <td>中，設計媒體；ESG 數字建議回官方資料交叉確認。</td>
               </tr>
               <tr>
-                <td><a href="https://www.wallpaper.com/design-interiors/interior-design/furniture/som-halston-chairs">Wallpaper / SOM79</a></td>
-                <td>2026-06-19</td>
-                <td>SOM / Ikonstudio 復刻 Halston 辦公椅；媒體提到 SOM 將與 Haworth 推出 archival collection。</td>
-                <td>中，設計媒體；Haworth 事件待官方補強。</td>
+                <td><a href="https://www.businessinsider.com/gensler-architecture-ai-design-tools-concepts-2026-6">Business Insider / Gensler AI Design</a></td>
+                <td>2026-06-22</td>
+                <td>Gensler 將 AI 用於設計探索、環境模擬、空間使用情境與提案敘事。</td>
+                <td>中，商業媒體報導；需以 Gensler 官方案例或客戶公開資料補強。</td>
               </tr>
               <tr>
-                <td><a href="https://apnews.com/article/retail-economy-consumer-spending-090206f028b12e15038265806355d75f">AP News</a></td>
-                <td>2026-06-18</td>
-                <td>美國 5 月零售月增 0.9%；家具店與線上銷售被點名成長。</td>
-                <td>高，新聞引用美國商務部資料。</td>
+                <td><a href="https://www.techradar.com/pro/why-2026-is-the-year-of-flexibility-without-friction-solving-the-multi-platform-crisis">TechRadar Pro / Meeting room friction</a></td>
+                <td>2026-04-15</td>
+                <td>2026 會議室期待轉向多平台、BYOD / BYOM、AI 摘要、低摩擦協作與使用者體驗。</td>
+                <td>中，產業觀點文；作為智慧辦公需求訊號。</td>
               </tr>
               <tr>
-                <td><a href="https://www.theguardian.com/business/2026/jun/19/hot-weather-rise-uk-retail-sales-may">The Guardian / ONS</a></td>
-                <td>2026-06-19</td>
-                <td>英國 5 月零售量月增 1.2%；家居用品店月增 3.2%；熱浪與促銷帶動戶外家具等商品。</td>
-                <td>中高，新聞引用 ONS 與業者資料。</td>
-              </tr>
-              <tr>
-                <td><a href="https://www.veranda.com/home-decorators/design-trends/a70482602/2026-furniture-trends/">Veranda</a></td>
-                <td>2026-02-24</td>
-                <td>2026 家具趨勢討論聚焦工藝、人味、材料、耐用與可追溯故事。</td>
-                <td>中，趨勢訪談；作為內容方向訊號。</td>
-              </tr>
-              <tr>
-                <td><a href="https://www.wallpaper.com/design-interiors/design-events/3-days-of-design-2026-copenhagen-preview">Wallpaper / 3 Days of Design</a></td>
-                <td>2026-06-03</td>
-                <td>3 Days of Design 2026 聚焦 purpose、工藝、材料責任與 responsible sourcing。</td>
-                <td>中，設計展會觀察。</td>
+                <td><a href="https://economictimes.indiatimes.com/industry/services/property-/-cstruction/indias-office-demand-strong-in-2026-despite-global-headwinds-on-gccs-flex-offices-colliers/articleshow/129625383.cms">Economic Times / Colliers India office demand</a></td>
+                <td>2026-03-18</td>
+                <td>印度辦公需求受 GCC、彈性辦公、綠色科技辦公、資產輕量化與改造需求帶動。</td>
+                <td>中高，新聞引用 Colliers 相關報告；不可直接套用為台灣市場數據。</td>
               </tr>
             </tbody>
           </table>
@@ -813,9 +755,9 @@
         </div>
         <div class="body">
           <ul class="source-list">
-            <li>已知事實：來源明確列出的產品發布、展會訊息、零售數據與媒體報導日期。</li>
-            <li>合理推論：對台灣 B2B 辦公家具、展廳、提案與 ESG 採購的可能影響。</li>
-            <li>待確認：任何碳減量、回收率、WELL 對應、產品環境聲明、台灣上市與競品銷售影響。</li>
+            <li>已知事實：來源明確列出的產品發布、展會訊息、媒體報導日期與顧問公司／品牌公開敘事。</li>
+            <li>合理推論：對台灣 B2B 辦公家具、展廳、提案、智慧辦公與 ESG 採購的可能影響。</li>
+            <li>待確認：任何碳減量、回收率、WELL 對應、產品環境聲明、台灣上市、競品銷售與市占變化。</li>
             <li>展示層維持 GitHub Pages 單檔 HTML；不使用 Google Apps Script 或 Google Sheets 作為前端資料來源。</li>
           </ul>
         </div>
