@@ -1,237 +1,49 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>家具產業輿情與競品監測 | 2026-07-16</title>
+  <title>家具產業輿情與競品監測 | 2026-07-20</title>
   <style>
-    :root {
-      --bg:#f4f6f8; --surface:#fff; --surface-2:#f8fafc; --ink:#17212b; --muted:#5f6f7d;
-      --line:#d9e1ea; --blue:#286a93; --teal:#2e8f8a; --green:#4d9562; --amber:#d88732;
-      --red:#c85d5d; --violet:#6d6aa8; --shadow:0 12px 30px rgba(23,33,43,.08);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI","Microsoft JhengHei",Arial,sans-serif;line-height:1.58}
-    a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-    .wrap{width:min(1440px,calc(100% - 28px));margin:0 auto}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0}
-    .eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    h1{margin:3px 0 6px;font-size:clamp(25px,2.5vw,38px);line-height:1.12}
-    .subhead{margin:0;color:var(--muted);font-size:14px;max-width:900px}
-    .toolbar{display:grid;grid-template-columns:repeat(4,minmax(148px,1fr));gap:10px;width:min(820px,100%)}
-    .meta{border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:9px 10px;min-height:58px}
-    .meta span{display:block;color:var(--muted);font-size:11px;font-weight:760;margin-bottom:3px}.meta b{font-size:14px}
-    main{padding:18px 0 36px}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
-    .card{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
-    .span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
-    .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 16px 11px;border-bottom:1px solid var(--line)}
-    .card-head h2{margin:0;font-size:17px;line-height:1.25}.caption{margin-top:4px;color:var(--muted);font-size:12px}
-    .body{padding:14px 16px 16px}.pill{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;color:#fff;font-size:12px;font-weight:760;white-space:nowrap;background:var(--blue)}
-    .pill.green{background:var(--green)}.pill.amber{background:var(--amber)}.pill.red{background:var(--red)}.pill.violet{background:var(--violet)}.pill.gray{background:#687684}.pill.teal{background:var(--teal)}
-    .kpi{min-height:178px;display:flex;flex-direction:column;justify-content:space-between}.kpi-value{margin:4px 0 10px;font-size:36px;font-weight:800;line-height:1}
-    .note,.copy,.source-list,.micro{color:var(--muted);font-size:13px}.note{margin:0}
-    .delta{display:inline-flex;width:fit-content;margin-bottom:8px;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:760;color:#25643b;background:#e9f6ee}
-    .delta.warn{color:#8e5619;background:#fff1e1}.delta.risk{color:#9b3030;background:#fdecec}.delta.neutral{color:#495663;background:#eef2f6}
-    .insight-list{display:grid;gap:11px;margin:0;padding:0;list-style:none}.insight-list li{display:grid;grid-template-columns:116px 1fr;gap:10px;padding-bottom:11px;border-bottom:1px solid var(--line)}
-    .insight-list li:last-child{border-bottom:0;padding-bottom:0}.tag{width:fit-content;height:fit-content;padding:3px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:760}
-    .title{margin:0 0 3px;font-weight:800}.copy{margin:0}
-    .bar-row{display:grid;grid-template-columns:142px 1fr 70px;align-items:center;gap:10px;margin:11px 0;font-size:13px}
-    .track{height:10px;border-radius:999px;background:#e8edf3;overflow:hidden}.bar{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),#5bb0c9)}
-    .bar.green{background:linear-gradient(90deg,var(--green),#8cc99e)}.bar.amber{background:linear-gradient(90deg,var(--amber),#efb46d)}.bar.violet{background:linear-gradient(90deg,var(--violet),#9b96d0)}.bar.red{background:linear-gradient(90deg,var(--red),#e09393)}
-    table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface-2);color:var(--muted);font-size:12px;font-weight:800}tr:last-child td{border-bottom:0}
-    .heatmap{display:grid;grid-template-columns:1.05fr repeat(5,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13px}
-    .heatmap div{padding:10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:64px}.heatmap div:nth-child(6n){border-right:0}.heatmap div:nth-last-child(-n + 6){border-bottom:0}
-    .heatmap .head{background:var(--surface-2);color:var(--muted);font-weight:800;min-height:auto}.score-high{background:#e9f6ee;color:#25643b;font-weight:760}.score-mid{background:#fff1e1;color:#8e5619;font-weight:760}.score-watch{background:#fdecec;color:#9b3030;font-weight:760}
-    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.audience{border:1px solid var(--line);background:var(--surface-2);border-radius:8px;padding:12px}.audience h3{margin:6px 0 5px;font-size:15px}.audience p{margin:0;color:var(--muted);font-size:13px}
-    .source-list{margin:0;padding-left:18px}footer{padding:0 0 28px;color:var(--muted);font-size:12px}
-    @media (max-width:1120px){.header-inner{align-items:flex-start;flex-direction:column}.toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}.span-3,.span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 12}.audience-grid{grid-template-columns:1fr}.heatmap{grid-template-columns:1fr}.heatmap div{border-right:0}.heatmap .head:not(:first-child){display:none}}
-    @media (max-width:640px){.wrap{width:min(100% - 20px,1440px)}.toolbar{grid-template-columns:1fr}.insight-list li,.bar-row{grid-template-columns:1fr}}
+    :root{--bg:#f4f6f8;--surface:#fff;--surface-2:#f8fafc;--ink:#17212b;--muted:#5f6f7d;--line:#d9e1ea;--blue:#286a93;--teal:#2e8f8a;--green:#4d9562;--amber:#d88732;--red:#c85d5d;--violet:#6d6aa8;--shadow:0 12px 30px rgba(23,33,43,.08)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI","Microsoft JhengHei",Arial,sans-serif;line-height:1.58}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.wrap{width:min(1440px,calc(100% - 28px));margin:0 auto}.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0}
+    .eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}h1{margin:3px 0 6px;font-size:clamp(25px,2.5vw,38px);line-height:1.12}.subhead{margin:0;color:var(--muted);font-size:14px;max-width:900px}
+    .toolbar{display:grid;grid-template-columns:repeat(4,minmax(148px,1fr));gap:10px;width:min(820px,100%)}.meta{border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:9px 10px;min-height:58px}.meta span{display:block;color:var(--muted);font-size:11px;font-weight:760;margin-bottom:3px}.meta b{font-size:14px}
+    main{padding:18px 0 36px}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
+    .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 16px 11px;border-bottom:1px solid var(--line)}.card-head h2{margin:0;font-size:17px;line-height:1.25}.caption{margin-top:4px;color:var(--muted);font-size:12px}.body{padding:14px 16px 16px}.pill{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;color:#fff;font-size:12px;font-weight:760;white-space:nowrap;background:var(--blue)}.pill.green{background:var(--green)}.pill.amber{background:var(--amber)}.pill.red{background:var(--red)}.pill.violet{background:var(--violet)}.pill.gray{background:#687684}.pill.teal{background:var(--teal)}
+    .kpi{min-height:176px;display:flex;flex-direction:column;justify-content:space-between}.kpi-value{margin:4px 0 10px;font-size:36px;font-weight:800;line-height:1}.note,.copy{color:var(--muted);font-size:13px}.note{margin:0}.delta{display:inline-flex;width:fit-content;margin-bottom:8px;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:760;color:#25643b;background:#e9f6ee}.delta.warn{color:#8e5619;background:#fff1e1}.delta.neutral{color:#495663;background:#eef2f6}
+    .insight-list{display:grid;gap:11px;margin:0;padding:0;list-style:none}.insight-list li{display:grid;grid-template-columns:116px 1fr;gap:10px;padding-bottom:11px;border-bottom:1px solid var(--line)}.insight-list li:last-child{border-bottom:0;padding-bottom:0}.tag{width:fit-content;height:fit-content;padding:3px 7px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:760}.title{margin:0 0 3px;font-weight:800}.copy{margin:0}
+    .bar-row{display:grid;grid-template-columns:142px 1fr 70px;align-items:center;gap:10px;margin:11px 0;font-size:13px}.track{height:10px;border-radius:999px;background:#e8edf3;overflow:hidden}.bar{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),#5bb0c9)}.bar.green{background:linear-gradient(90deg,var(--green),#8cc99e)}.bar.amber{background:linear-gradient(90deg,var(--amber),#efb46d)}.bar.violet{background:linear-gradient(90deg,var(--violet),#9b96d0)}.bar.red{background:linear-gradient(90deg,var(--red),#e09393)}
+    table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--surface-2);color:var(--muted);font-size:12px;font-weight:800}tr:last-child td{border-bottom:0}.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.audience{border:1px solid var(--line);background:var(--surface-2);border-radius:8px;padding:12px}.audience h3{margin:6px 0 5px;font-size:15px}.audience p{margin:0;color:var(--muted);font-size:13px}footer{padding:0 0 28px;color:var(--muted);font-size:12px}
+    @media(max-width:1120px){.header-inner{align-items:flex-start;flex-direction:column}.toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}.span-3,.span-4,.span-5,.span-7,.span-8{grid-column:span 12}.audience-grid{grid-template-columns:1fr}}@media(max-width:640px){.wrap{width:min(100% - 20px,1440px)}.toolbar{grid-template-columns:1fr}.insight-list li,.bar-row{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap header-inner">
-      <div>
-        <div class="eyebrow">Furniture Industry Intelligence</div>
-        <h1>家具產業輿情與競品監測</h1>
-        <p class="subhead">2026-07-16 每日報告｜正式展示層：GitHub Pages 單檔 HTML｜主體聚焦家具產業，競品名稱僅用於監測、比較與來源區。</p>
-      </div>
-      <div class="toolbar" aria-label="report metadata">
-        <div class="meta"><span>Report date</span><b>2026-07-16</b></div>
-        <div class="meta"><span>Mode</span><b>每日報告</b></div>
-        <div class="meta"><span>Primary audience</span><b>經營管理層／營業／幕僚</b></div>
-        <div class="meta"><span>Core module</span><b>競品即時雷達</b></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section class="grid" aria-label="management dashboard">
-      <article class="card span-3 kpi">
-        <div class="card-head"><div><h2>高相關訊號</h2><div class="caption">今日公開資訊</div></div><span class="pill">9</span></div>
-        <div class="body"><div class="kpi-value">9</div><div class="delta">競品／市場訊號 8 則</div><p class="note">今日重點集中在 Kokuyo Energy Line 桌面電源／線材管理訊號、印度 H1 辦公租賃分化、flex workspace 品牌溢價、Steelcase workplace-as-strategy、Gensler AI 設計流程、Vitra / Haworth 設計敘事與辦公椅媒體比較。</p></div>
-      </article>
-      <article class="card span-3 kpi">
-        <div class="card-head"><div><h2>競品影響</h2><div class="caption">對台灣 B2B 辦公家具</div></div><span class="pill amber">中高</span></div>
-        <div class="body"><div class="kpi-value">4/5</div><div class="delta warn">桌面細節＋顧問話語權加壓</div><p class="note">競爭焦點持續從單品規格，擴張到工作場域策略、桌面電源與線材體驗、彈性辦公服務、AI 輔助提案、健康辦公證據與展示場景可信度。</p></div>
-      </article>
-      <article class="card span-3 kpi">
-        <div class="card-head"><div><h2>需求訊號</h2><div class="caption">辦公資產與彈性空間</div></div><span class="pill teal">分化</span></div>
-        <div class="body"><div class="kpi-value">48M</div><div class="delta warn">India H1 leasing sq ft, -2%</div><p class="note">Times of India 引用 Knight Frank 指出印度八大市場 H1 leasing 約 48 million sq ft、年減 2%；但 GCC 與 co-working 仍成長。管理解讀：需求不是消失，而是企業決策更謹慎、更要求彈性與投資理由。</p></div>
-      </article>
-      <article class="card span-3 kpi">
-        <div class="card-head"><div><h2>資料邊界</h2><div class="caption">來源與推論區分</div></div><span class="pill gray">Guarded</span></div>
-        <div class="body"><div class="kpi-value">0</div><div class="delta neutral">未新增未驗證 ESG 數字</div><p class="note">ESG、碳排、WELL、回收率、競品市占與台灣銷售變化均不在無來源下宣稱；僅列為待確認或追蹤項。</p></div>
-      </article>
-    </section>
-
-    <section class="grid" style="margin-top:14px" aria-label="executive brief">
-      <article class="card span-7">
-        <div class="card-head"><div><h2>Executive Brief</h2><div class="caption">今日最值得主管先掌握的外部訊號</div></div><span class="pill">Top signals</span></div>
-        <div class="body">
-          <ul class="insight-list">
-            <li><span class="tag">市場需求</span><div><p class="title">印度 office leasing 從「創高」轉為「小幅降溫」，但 GCC 與 co-working 仍支撐需求。</p><p class="copy">最新發展：Times of India 引用 Knight Frank 指出 2026 H1 印度八大辦公市場 leasing 約 48 million sq ft、年減 2%；同篇也指出 GCC 占 43%、co-working 租賃升至 11.4 million sq ft。可能意涵：企業不是停止投資辦公室，而是更謹慎、更重視可擴縮、可分期與可說服員工到辦的空間理由。</p></div></li>
-            <li><span class="tag">彈性辦公</span><div><p class="title">Flex workspace 正從租賃吸收者，變成「標準化服務與企業信任」的價格戰場。</p><p class="copy">最新發展：Economic Times 引用 myHQ Report 2026 指出全國性 flexible workspace 品牌相較獨立業者有 19% 以上座位價格溢價，企業偏好可預期、標準化、跨城市的服務。可能意涵：FaaS、租賃與快速導入若要被客戶接受，必須說清楚服務標準、維運流程與跨點一致性。</p></div></li>
-            <li><span class="tag">競品／顧問</span><div><p class="title">Gensler 將 AI 放進設計前期，提升概念探索、模擬與提案敘事速度。</p><p class="copy">最新發展：Business Insider 報導 Gensler 將 AI 用於每年大量專案中的設計選項、環境性能、空間動態與 storytelling。可能意涵：若家具商缺少診斷、情境視覺化與資料化提案能力，容易在客戶決策早期被顧問公司定義成後段供應商。</p></div></li>
-            <li><span class="tag">競品／品牌</span><div><p class="title">Steelcase 的 workplace-as-strategy 敘事，把家具討論提升到績效、協作與組織文化。</p><p class="copy">最新發展：Economic Times 報導 Steelcase 在印度市場強調從 furniture supplier 轉為 workplace transformation partner，並談到會議型態、AI-driven technologies、well-being 與在地製造。可能意涵：國際競品正在用研究、顧問語言與產品配置包裝成管理議題。</p></div></li>
-            <li><span class="tag">亞洲競品</span><div><p class="title">Kokuyo Energy Line 把「桌面電源與線材管理」包裝成美學、包容性與工作體驗問題。</p><p class="copy">最新發展：TechRadar 報導 Kokuyo Energy Line 以可任意插入、夾桌收線、單手操作與 Good Design Award 語境切入辦公桌最常見痛點；限制包含 100V、1500W、無突波保護與兩孔插頭。可能意涵：亞洲競品正在把小型桌面配件做成工作體驗與設計細節話題，值得觀察其是否延伸到系統桌、電源模組與展廳場景。</p></div></li>
-            <li><span class="tag">設計敘事</span><div><p class="title">Vitra 與 Haworth 類訊號顯示，設計品牌正在用「材料、經典重製、沉浸展示」延長產品價值。</p><p class="copy">最新發展：Wallpaper 報導 Vitra Bascule 將於 2026 年 9 月正式上市、先以 Copenhagen showroom 沉浸場景預展；SOM79 復刻與後續 Haworth archival collection 也把建築師、經典辦公與新產品連成內容資產。可能意涵：展廳不只是展示產品，而是讓客戶理解設計、材料、歷史與工作場景價值的證據系統。</p></div></li>
-          </ul>
-        </div>
-      </article>
-      <article class="card span-5">
-        <div class="card-head"><div><h2>Management Dashboard</h2><div class="caption">每個數字只作管理解讀，不作假儀表板</div></div><span class="pill teal">Signal strength</span></div>
-        <div class="body">
-          <div class="bar-row"><b>Flex workspace</b><div class="track"><div class="bar green" style="width:91%"></div></div><span>高</span></div>
-          <p class="note">GCC 與 co-working 仍推動租賃需求，全國性品牌可收取溢價，代表企業把彈性空間視為可管理、可標準化的服務，而不是臨時替代方案。</p>
-          <div class="bar-row"><b>顧問式服務</b><div class="track"><div class="bar amber" style="width:86%"></div></div><span>中高</span></div>
-          <p class="note">Gensler、CBRE、JLL、Colliers 類角色會先定義資產效率、員工體驗與空間策略；家具商若要提高議價權，需要更早進入需求診斷。</p>
-          <div class="bar-row"><b>產品證據</b><div class="track"><div class="bar violet" style="width:78%"></div></div><span>中高</span></div>
-          <p class="note">Tom's Guide 與 TechRadar 類辦公椅／桌面設備榜單讓 Steelcase、Herman Miller、Haworth、Kokuyo、prosumer 品牌被放進同一功能與價格語境，會影響客戶採購前的自我研究。</p>
-          <div class="bar-row"><b>本土競品</b><div class="track"><div class="bar red" style="width:44%"></div></div><span>追蹤</span></div>
-          <p class="note">今日未見足夠高相關公開重大訊號；仍需看標案、展廳活動、價格促銷、交期、社群聲量與地區專案案例。</p>
-        </div>
-      </article>
-    </section>
-
-    <section class="grid" style="margin-top:14px" aria-label="competitor intelligence">
-      <article class="card span-12">
-        <div class="card-head"><div><h2>Competitor Intelligence / 競品即時雷達</h2><div class="caption">核心價值：競品正在做什麼、為什麼重要、可能影響哪些戰場</div></div><span class="pill amber">Radar</span></div>
-        <div class="body">
-          <div class="heatmap" role="table" aria-label="competitor intelligence heatmap">
-            <div class="head">競品／類型</div><div class="head">最新動態</div><div class="head">對位戰場</div><div class="head">威脅／機會</div><div class="head">對營業主管可用資訊</div><div class="head">對幕僚主管可用資訊</div>
-            <div><b>JLL / CBRE / Colliers / flex operators</b><br><span class="note">不動產與工作場域顧問</span></div><div>印度 H1 leasing 出現不同顧問口徑：Knight Frank 顯示年減 2%，CBRE / Cushman / Colliers 仍顯示不同程度支撐；GCC 與 co-working 是共同主線。</div><div>ABW／高效辦公、FaaS／租賃、既有空間改造、共享座位、企業據點策略。</div><div class="score-high">高：顧問公司可能先把需求定義成資產效率、風險控管與員工體驗，家具商若晚進場只剩報價角色。</div><div>用「不確定環境下仍可分階段改善」切入，準備 baseline upgrade、priority zones、phase 2 expansion。</div><div>建立 flex workspace 情境包：配置模板、導入時程、可移動家具、租賃／採購比較、SLA 與案例照片需求。</div>
-            <div><b>Gensler</b><br><span class="note">設計顧問與工作場域策略</span></div><div>AI 被用於設計選項、環境性能、空間動態與提案 storytelling，將前期概念探索變成規模化能力。</div><div>顧問式服務、智慧辦公、展廳體驗、客戶提案、工作場域轉型。</div><div class="score-high">高：可能先於家具商定義客戶問題、視覺語言與決策框架。</div><div>準備「問題診斷、配置邏輯、產品組合、使用情境、導入步驟」的簡短提案模組。</div><div>累積 before/after、使用者旅程、展廳導覽腳本、AI 輔助提案流程與人工審核規則。</div>
-            <div><b>Steelcase / HNI</b><br><span class="note">國際辦公家具整合平台</span></div><div>Steelcase 的 workplace-as-strategy 敘事延續，並在印度市場連結 workplace transformation、inclusion、AI-driven technologies 與 well-being。</div><div>健康辦公、ABW、智慧辦公、顧問式服務、通路服務、企業專案。</div><div class="score-high">高：國際競品會把產品、研究、數位工具、在地製造與社會責任包裝為一體化方案。</div><div>從員工體驗、混合會議效率、專注與協作平衡回答「為何要更新辦公室」。</div><div>補工作場域研究語言、BIM/Revit 素材、健康辦公證據與展廳情境；ESG 數據逐項回來源。</div>
-            <div><b>MillerKnoll / Herman Miller</b><br><span class="note">國際辦公家具／經典椅基準</span></div><div>Herman Miller Embody / Aeron 持續在 2026 辦公椅榜單與設計媒體中作為高端人體工學與經典產品基準。</div><div>健康辦公、設計典藏、ESG／循環、產品壽命、高端座椅提案。</div><div class="score-high">高：明星產品會成為客戶比較人體工學、設計、材料、保固與高端價格帶的標準。</div><div>面對國際座椅比較，回到在地導入、整體配置、售後維運、交期、案例與空間情境。</div><div>補高端座椅證據頁：人體工學、材料、保固、維修、環境資料、設計故事與替代選項。</div>
-            <div><b>Haworth / Vitra / SOM79</b><br><span class="note">設計品牌與場景敘事</span></div><div>Vitra Bascule 預展用沉浸場景包裝材料與感官體驗；SOM79 復刻與 Haworth archival collection 訊號連結建築師歷史與辦公產品。</div><div>健康辦公、設計典藏、展廳體驗、ESG／循環、品牌內容。</div><div class="score-mid">中高：不一定直接衝擊價格，但會提高客戶對展示中心、材料故事、設計來源與產品證據的期待。</div><div>帶客戶參觀時可從「空間如何承載品牌、工作方式與員工體驗」切入，而非只介紹單品。</div><div>整理 NEXt-WORK 類場景腳本：每個場景對應一個管理問題、一個客戶痛點、一組可驗證素材。</div>
-            <div><b>Okamura / Kokuyo / 本土競品</b><br><span class="note">亞洲與區域競品</span></div><div>Kokuyo Energy Line 以桌面電源、線材收納、單手操作與設計獎項語境切入工作桌細節；印度布局與 Okamura 亞洲產品力仍需持續追蹤。</div><div>智慧辦公、系統桌、桌面電源、展廳活動、亞洲通路、標案、價格／促銷。</div><div class="score-mid">中：短期不是大型專案威脅，但提醒辦公桌競爭會延伸到電源、線材、包容性使用與細節體驗。</div><div>客戶問到桌面整潔、充電便利、會議桌電源與線材時，可把討論拉回整體工作體驗與維護責任。</div><div>盤點桌面電源／線材管理模組、台灣電規限制、展廳展示方式與本土競品是否已有類似話術。</div>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="grid" style="margin-top:14px" aria-label="latest signals">
-      <article class="card span-7">
-        <div class="card-head"><div><h2>Latest Signals</h2><div class="caption">高相關訊號，而非平均羅列新聞</div></div><span class="pill green">Market / competitor</span></div>
-        <div class="body">
-          <table>
-            <thead><tr><th>訊號</th><th>為什麼值得看</th><th>對家具產業的可能意涵</th></tr></thead>
-            <tbody>
-              <tr><td>印度 H1 office leasing 約 48 million sq ft、年減 2%，但 GCC 占 43%、co-working 升至 11.4 million sq ft。</td><td>顯示市場從高速擴張轉向更謹慎的決策，但結構性需求仍由企業能力中心與彈性辦公支撐。</td><td>提案應連到風險控管、分期導入、資產效率、員工體驗與可重配配置，而不只列產品規格。</td></tr>
-              <tr><td>全國性 flex workspace 品牌座位價格相較獨立業者有 19% 以上溢價。</td><td>溢價來自可預期、標準化、跨城市服務與企業可信度，而非單純座位出租。</td><td>FaaS／租賃與維運服務若要成立，需要把服務標準、導入流程、維修責任與跨點一致性說清楚。</td></tr>
-              <tr><td>Gensler 將 AI 放進設計流程，協助設計選項、環境性能與故事化提案。</td><td>設計顧問可能更早掌握客戶想像與決策語言。</td><td>家具商需要可視化提案、場景診斷、展廳導覽與資料來源標註，避免被後置化。</td></tr>
-              <tr><td>Steelcase workplace-as-strategy 內容延續，強調 transformation partner 而非 furniture supplier。</td><td>國際家具品牌正把 workplace 討論提升到績效、協作、文化、inclusion 與 AI-enabled workplace。</td><td>台灣 B2B 競爭需要更清楚說明在地服務、整體方案、交付能力與資料證據。</td></tr>
-              <tr><td>Kokuyo Energy Line 把辦公桌線材管理變成設計與包容性使用訊號。</td><td>桌面電源從配件問題上升為工作體驗、視覺整潔與日常維運問題。</td><td>系統桌、會議桌、共享座位與展廳場景需要更清楚呈現電源、收線、維修與台灣電規限制。</td></tr>
-              <tr><td>Vitra Bascule 與 SOM79 / Haworth archival collection 顯示設計品牌用產品故事延伸商業價值。</td><td>材料、經典重製、感官展示與建築師合作都成為品牌內容資產。</td><td>展廳與案例頁需要把每個產品或場景背後的工作方式、材料邏輯與客戶問題說清楚。</td></tr>
-              <tr><td>辦公椅媒體榜單使高端品牌與 prosumer 品牌被同框比較。</td><td>Steelcase、Herman Miller、Haworth、Branch、Autonomous 等品牌出現在同一採購研究語境。</td><td>營業需要回應「功能／價格」比較，並把討論拉回企業批量導入、保固維修、空間適配與長期使用價值。</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-      <article class="card span-5">
-        <div class="card-head"><div><h2>Audience View</h2><div class="caption">分角色轉換成可用資訊</div></div><span class="pill">Reader lens</span></div>
-        <div class="body">
-          <div class="audience-grid">
-            <div class="audience"><span class="tag">經營管理層</span><h3>引導式判讀</h3><p>這是否代表競爭焦點正在從單品採購，轉向「辦公資產效率、員工到辦理由、彈性配置、資料證據與顧問式服務」？值得確認的是：我們需要在哪些客戶旅程更早進場？</p></div>
-            <div class="audience"><span class="tag">營業主管</span><h3>客戶切入</h3><p>可用 flex workspace、既有空間重配、到辦體驗、人體工學椅比較、會議科技摩擦與分階段導入切入。客戶若只比價格，應回到企業導入、維運與整體配置。</p></div>
-            <div class="audience"><span class="tag">幕僚主管</span><h3>素材缺口</h3><p>優先補 flex workspace 場景包、桌面電源／線材管理展示、高端座椅證據頁、NEXt-WORK 場景腳本、ESG 資料邊界與 AI 輔助提案審核規則。</p></div>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="grid" style="margin-top:14px" aria-label="implication and follow up">
-      <article class="card span-8">
-        <div class="card-head"><div><h2>Implication for Aurora / Da Zhen</h2><div class="caption">外部訊號轉成產品、行銷、業務、展廳與 ESG 採購議題</div></div><span class="pill violet">Implication</span></div>
-        <div class="body">
-          <table>
-            <thead><tr><th>議題</th><th>可能影響</th><th>需要補強的材料</th></tr></thead>
-            <tbody>
-              <tr><td>需求分化，不是不投資</td><td>客戶可能更在意投資優先順序、分期導入與風險控管，而不是一次性完整採購。</td><td>baseline / priority / expansion 三階段提案頁、預算分期與空間效益說明。</td></tr>
-              <tr><td>彈性辦公服務標準化</td><td>企業願意為可信任、可維運、跨點一致的 flex service 付費。</td><td>共享座位、移動家具、隔音艙、會議科技、SLA、維修責任與租賃／採購比較表。</td></tr>
-              <tr><td>顧問與設計公司前移</td><td>客戶問題可能先由不動產顧問或設計顧問定義，家具商必須補足前期診斷語言。</td><td>工作場域診斷問卷、場景地圖、before/after、使用者旅程與提案故事線。</td></tr>
-              <tr><td>桌面細節成為體驗證據</td><td>Kokuyo 類訊號顯示，電源、收線、單手操作與視覺整潔會被包裝成工作體驗與包容性設計。</td><td>桌面電源／線材管理盤點、台灣電規限制、會議桌與共享座位展示、維修責任與安全說明。</td></tr>
-              <tr><td>展廳變成證據系統</td><td>Vitra 類沉浸展示與 Haworth 類 archival story 提高客戶對可參觀、可感受、可驗證展示的期待。</td><td>NEXt-WORK 導覽腳本、場景目的、材料與健康證據、可拍攝素材與客戶問題清單。</td></tr>
-              <tr><td>ESG 主張需更嚴謹</td><td>永續語言會被客戶期待，但沒有來源的碳排、回收率、WELL 對應不能作為銷售主張。</td><td>材料比例、第三方認證、維修延壽、回收流程、供應商文件與待確認欄位。</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-      <article class="card span-4">
-        <div class="card-head"><div><h2>Action / Follow-up</h2><div class="caption">營業與幕僚可執行；經營管理層為討論題</div></div><span class="pill green">Next moves</span></div>
-        <div class="body">
-          <table>
-            <thead><tr><th>優先級</th><th>角色</th><th>事項</th></tr></thead>
-            <tbody>
-              <tr><td>高</td><td>幕僚</td><td>把 flex workspace 場景包補上服務標準：導入時程、維修責任、跨點一致性與可重配家具。</td></tr>
-              <tr><td>高</td><td>營業</td><td>整理三組問答：需求不確定、預算分期、為何仍需升級辦公室。</td></tr>
-              <tr><td>中</td><td>產品／行銷</td><td>補高端座椅與 prosumer 座椅比較表，避免只用單價比較。</td></tr>
-              <tr><td>中</td><td>產品／展廳</td><td>盤點桌面電源、線材管理、台灣電規與共享座位展示，補上安全與維護說明。</td></tr>
-              <tr><td>中</td><td>展廳／內容</td><td>把展示中心每個場景對應到一個客戶管理問題與一組可驗證素材。</td></tr>
-              <tr><td>中</td><td>經營管理層</td><td>討論題：是否需要把顧問式診斷、ESG 證據與展廳場景腳本列為下季素材優先級？</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-    </section>
-
-    <section class="grid" style="margin-top:14px" aria-label="sources and assumptions">
-      <article class="card span-8">
-        <div class="card-head"><div><h2>Sources and Assumptions</h2><div class="caption">區分已知事實、合理推論與待確認</div></div><span class="pill gray">Sources</span></div>
-        <div class="body">
-          <table>
-            <thead><tr><th>來源</th><th>日期</th><th>用於本報告的事實</th><th>可信度／限制</th></tr></thead>
-            <tbody>
-              <tr><td><a href="https://timesofindia.indiatimes.com/real-estate/news/indias-office-market-pauses-after-record-run-as-leasing-dips-2-in-h1-2026-heres-why/articleshow/132296919.cms">Times of India / India's office market pauses after record run</a></td><td>2026-07-10</td><td>Knight Frank 口徑：印度八大市場 H1 leasing 約 48 million sq ft、年減 2%；GCC 占 43%，co-working 升至 11.4 million sq ft。</td><td>中高；用於市場結構判讀，不直接等同台灣市場。</td></tr>
-              <tr><td><a href="https://economictimes.indiatimes.com/industry/services/property-/-cstruction/national-flex-workspace-brands-command-19-premium-over-local-operators-report/articleshow/132123115.cms">Economic Times / national flex workspace premium</a></td><td>2026-07-02</td><td>全國性 flexible workspace 品牌相較獨立業者有 19% 以上溢價，企業偏好標準化與跨城市服務。</td><td>中；用於服務標準化與企業信任度訊號。</td></tr>
-              <tr><td><a href="https://www.businessinsider.com/gensler-architecture-ai-design-tools-concepts-2026-6">Business Insider / Gensler AI design workflow</a></td><td>2026-06</td><td>Gensler 將 AI 用於設計選項、環境性能、空間動態與提案敘事。</td><td>中；可作為設計顧問競爭方式訊號，不代表所有顧問公司成熟度。</td></tr>
-              <tr><td><a href="https://economictimes.indiatimes.com/industry/services/property-/-cstruction/workplace-as-strategy-steelcase-driving-performance-beyond-design/articleshow/131735011.cms">Economic Times / Steelcase workplace as strategy</a></td><td>2026-06-15</td><td>Steelcase 以 workplace transformation partner 討論績效、混合辦公、AI-enabled technologies、well-being 與在地製造。</td><td>中；內容標示為非編輯內容，適合判讀競品定位語言，需避免當成獨立研究結論。</td></tr>
-              <tr><td><a href="https://www.techradar.com/pro/this-sleek-japanese-power-strip-finally-fixes-your-office-desks-ugliest-pain-point">TechRadar / Kokuyo Energy Line</a></td><td>2026-07-15</td><td>Kokuyo Energy Line 主打桌面電源與線材管理，包含夾桌收線、單手操作、Good Design Award 語境；限制包含 100V、1500W、無突波保護與兩孔插頭。</td><td>中；用於桌面體驗與亞洲競品產品細節訊號，不能直接推論台灣上市或適用電規。</td></tr>
-              <tr><td><a href="https://www.tomsguide.com/home/home-office/best-office-chairs">Tom's Guide / best office chairs</a></td><td>2026-07</td><td>Branch、Steelcase Karman、Herman Miller Vantum、Haworth Fern、Aeron 等品牌被放進同一辦公椅比較語境。</td><td>中；媒體榜單不是企業採購標準，但會影響客戶初步認知。</td></tr>
-              <tr><td><a href="https://www.wallpaper.com/design-interiors/vitra-bascule-lounge-chair-oe-studio-reveal">Wallpaper / Vitra Bascule</a></td><td>2026-06</td><td>Vitra Bascule 預計 2026 年 9 月正式上市，並於 Copenhagen showroom 用沉浸場景預展。</td><td>中；作為設計品牌產品敘事與展示方式訊號。</td></tr>
-              <tr><td><a href="https://www.wallpaper.com/design-interiors/interior-design/furniture/som-halston-chairs">Wallpaper / SOM79 and Haworth archival collection</a></td><td>2026-06</td><td>SOM79 復刻辦公椅與 SOM 後續 Haworth archival collection 訊號。</td><td>中；用於設計典藏、建築師合作與產品故事化判讀。</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-      <article class="card span-4">
-        <div class="card-head"><div><h2>事實／推論／待確認</h2><div class="caption">避免過度宣稱</div></div><span class="pill red">Guardrails</span></div>
-        <div class="body">
-          <ul class="source-list">
-            <li>已知事實：來源明確列出的報導日期、租賃數字、產品／品牌事件與顧問公司動態。</li>
-            <li>合理推論：對台灣 B2B 辦公家具、展廳、提案、智慧辦公、FaaS 與 ESG 採購的可能影響。</li>
-            <li>待確認：任何碳減量、回收率、WELL 對應、產品環境聲明、台灣上市、競品銷售與市占變化。</li>
-            <li>展示層維持 GitHub Pages 單檔 HTML；不使用 Google Apps Script 或 Google Sheets 作為前端資料來源。</li>
-          </ul>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="wrap">
-    <p>家具產業輿情與競品監測｜2026-07-16｜競品評級為管理判讀，不代表市場份額、銷售額或投資建議。</p>
-  </footer>
+<header><div class="wrap header-inner"><div><div class="eyebrow">Furniture Industry Intelligence</div><h1>家具產業輿情與競品監測</h1><p class="subhead">2026-07-20 每日報告＋上週週報｜正式展示層：GitHub Pages 單檔 HTML｜主體聚焦家具產業，競品名稱僅用於監測、比較與來源區。</p></div><div class="toolbar"><div class="meta"><span>Report date</span><b>2026-07-20</b></div><div class="meta"><span>Mode</span><b>日報＋上週週報</b></div><div class="meta"><span>Primary audience</span><b>經營管理層／營業／幕僚</b></div><div class="meta"><span>Core module</span><b>競品即時雷達</b></div></div></div></header>
+<main class="wrap">
+<section class="grid">
+<article class="card span-3 kpi"><div class="card-head"><div><h2>高相關訊號</h2><div class="caption">今日公開資訊</div></div><span class="pill">10</span></div><div class="body"><div class="kpi-value">10</div><div class="delta">市場＋競品集中</div><p class="note">重點集中在 AI / tech 辦公租賃、rightsizing 與彈性需求、Steelcase 混合協作技術、Secretlab Atlas 進入 task chair 語境。</p></div></article>
+<article class="card span-3 kpi"><div class="card-head"><div><h2>競品影響</h2><div class="caption">對台灣 B2B 辦公家具</div></div><span class="pill amber">中高</span></div><div class="body"><div class="kpi-value">4/5</div><div class="delta warn">顧問＋產品邊界加壓</div><p class="note">競爭不只來自傳統家具品牌，也來自不動產顧問、科技整合商、prosumer 椅品牌與媒體評測語境。</p></div></article>
+<article class="card span-3 kpi"><div class="card-head"><div><h2>本週模式</h2><div class="caption">週一自動化規則</div></div><span class="pill teal">Weekly</span></div><div class="body"><div class="kpi-value">日＋週</div><div class="delta neutral">2026-07-13 至 2026-07-19</div><p class="note">今天為週一，除日報外同步收斂上週週報：AI 辦公租賃、彈性辦公、混合會議與 task chair 新競品。</p></div></article>
+<article class="card span-3 kpi"><div class="card-head"><div><h2>資料邊界</h2><div class="caption">來源與推論區分</div></div><span class="pill gray">Guarded</span></div><div class="body"><div class="kpi-value">0</div><div class="delta neutral">未新增未驗證 ESG 數字</div><p class="note">ESG、碳排、WELL、回收率、競品市占與台灣銷售變化均不在無來源下宣稱。</p></div></article>
+</section>
+<section class="grid" style="margin-top:14px">
+<article class="card span-7"><div class="card-head"><div><h2>Executive Brief</h2><div class="caption">今日最值得主管先掌握的外部訊號</div></div><span class="pill">Top signals</span></div><div class="body"><ul class="insight-list">
+<li><span class="tag">市場需求</span><div><p class="title">AI 與 tech leasing 成為辦公需求復甦的重要敘事，但集中在特定 gateway market。</p><p class="copy">CBRE 2026 Tech Gateway Office Markets 指出，AI 企業自 2019 年起在 San Francisco 與 Silicon Valley 合計租賃約 21 million sq ft；五大美國 tech gateway 目前有約 8.1 million sq ft AI tenants 正在尋找辦公空間。可能意涵：科技與 AI 需求正在重新定義「辦公室為何存在」，但不是所有市場同步受益。</p></div></li>
+<li><span class="tag">需求結構</span><div><p class="title">Rightsizing 與 flexibility 仍是企業辦公決策核心，不確定環境下大面積需求偏保守。</p><p class="copy">CBRE New Jersey Q2 2026 指出 Q2 leasing 反彈至 932,000 sq ft，但仍低於五年季度平均 21%；平均 deal size 從 2025 年初約 15,200 sq ft 降至 Q2 2026 約 11,000 sq ft。可能意涵：企業仍需要辦公空間，但更重視彈性、分期、重配與可被管理的投資理由。</p></div></li>
+<li><span class="tag">競品／技術</span><div><p class="title">Steelcase 在 InfoComm 2026 強化「家具＋科技」的混合協作整合語言。</p><p class="copy">Steelcase 於 InfoComm 2026 展示 hybrid collaboration solutions，重點放在 furniture and technology function together，並與 Microsoft、Logitech、Zoom、Crestron、VergeSense、Spaceti 等夥伴整合。可能意涵：混合會議不再只是 IT 設備問題，而是設施、家具、科技與員工體驗共同設計的場景。</p></div></li>
+<li><span class="tag">新型競品</span><div><p class="title">Secretlab Atlas 讓 gaming / prosumer 品牌更正式進入 office task chair 比較語境。</p><p class="copy">PC Gamer、NY Post、Tom's Hardware 與 GamesRadar 近期均將 Secretlab Atlas 放在工作與遊戲兼用、office-friendly task chair 的語境下評測。可能意涵：客戶自我研究時，可能把傳統辦公椅、gaming chair、prosumer task chair 放在同一張比較表，影響價格錨點與功能期待。</p></div></li>
+<li><span class="tag">顧問角色</span><div><p class="title">不動產顧問與設計顧問仍掌握需求定義前段，家具商若晚進場容易被後置為報價角色。</p><p class="copy">CBRE、JLL 類內容持續用資產效率、flex portfolio、AI demand、tenant demand 與 occupier strategy 定義客戶問題。可能意涵：家具產業需要更早用診斷、場景、分期導入與證據化語言進入客戶決策。</p></div></li>
+</ul></div></article>
+<article class="card span-5"><div class="card-head"><div><h2>Management Dashboard</h2><div class="caption">每個數字只作管理解讀，不作假儀表板</div></div><span class="pill teal">Signal strength</span></div><div class="body"><div class="bar-row"><b>AI office demand</b><div class="track"><div class="bar green" style="width:91%"></div></div><span>高</span></div><p class="note">AI / tech 在特定 gateway market 推升租賃需求，適合作為「高人才密度企業仍需要高品質辦公場景」的外部訊號。</p><div class="bar-row"><b>Flex / rightsizing</b><div class="track"><div class="bar amber" style="width:88%"></div></div><span>中高</span></div><p class="note">需求變小、決策更謹慎，代表家具方案要支援分期導入、可重配、低干擾施工與可管理的整體成本。</p><div class="bar-row"><b>Hybrid tech</b><div class="track"><div class="bar violet" style="width:83%"></div></div><span>中高</span></div><p class="note">Steelcase 將家具與科技夥伴放在同一展場語境，顯示會議室、協作區、專注區與數位工具需要一起被設計。</p><div class="bar-row"><b>Prosumer chair</b><div class="track"><div class="bar red" style="width:74%"></div></div><span>追蹤</span></div><p class="note">Secretlab Atlas 不是傳統 B2B 辦公家具品牌，但會影響用戶端對椅款外型、價格、舒適與工作／娛樂混合使用的期待。</p></div></article>
+</section>
+<section class="grid" style="margin-top:14px"><article class="card span-12"><div class="card-head"><div><h2>Weekly Synthesis / 上週週報</h2><div class="caption">涵蓋期間：2026-07-13 至 2026-07-19｜週一固定收斂</div></div><span class="pill green">Weekly</span></div><div class="body"><table><thead><tr><th>上週主題</th><th>觀察到的變化</th><th>對家具產業的管理含義</th></tr></thead><tbody><tr><td>AI / tech leasing 重新支撐特定辦公市場</td><td>CBRE Tech Gateway 報告與 Bay Area AI leasing 訊號持續顯示，AI 企業在人才密集市場帶動辦公需求與租賃活動。</td><td>辦公室不只被討論為成本，也被討論為招募、協作、速度與文化載體；對高成長科技客戶，提案語言要能回應這些管理問題。</td></tr><tr><td>Rightsizing 與 flex 不是短期現象</td><td>CBRE New Jersey Q2 顯示大型需求偏弱、小型需求與彈性偏好仍在；JLL flex 論述也指出 flex 是企業 portfolio strategy 的一部分。</td><td>家具方案需要以「可分期、可移動、可擴縮、可維運」設計，不只賣一次性完整裝修。</td></tr><tr><td>混合協作從 IT 問題變成空間體驗問題</td><td>Steelcase 在 InfoComm 2026 把家具與 Microsoft、Logitech、Zoom、Crestron 等科技夥伴整合展示。</td><td>會議室、協作區與專注區需要形成可展示、可測試、可維運的場景；營業說法要同時對 HR、IT、總務與主管層有效。</td></tr><tr><td>Prosumer / gaming 品牌進入辦公椅比較</td><td>Secretlab Atlas 在 7 月中旬被多家媒體以 office task chair 或 work-and-play chair 角度評測。</td><td>企業採購雖不同於個人消費，但終端使用者與主管會受到媒體榜單影響；需要更強的座椅比較框架與企業導入理由。</td></tr><tr><td>競品敘事更像顧問，不像型錄</td><td>國際品牌與顧問機構共同把 workplace 語言導向績效、健康、AI、混合協作、資產效率與員工體驗。</td><td>展廳、內容、產品頁與業務簡報需要成為一套證據系統：問題、場景、解法、導入、維運、資料來源。</td></tr></tbody></table></div></article></section>
+<section class="grid" style="margin-top:14px"><article class="card span-12"><div class="card-head"><div><h2>Competitor Intelligence / 競品即時雷達</h2><div class="caption">核心價值：競品正在做什麼、為什麼重要、可能影響哪些戰場</div></div><span class="pill amber">Radar</span></div><div class="body"><table><thead><tr><th>競品／類型</th><th>最新動態</th><th>威脅／機會</th><th>營業主管可用資訊</th><th>幕僚主管可用資訊</th></tr></thead><tbody><tr><td><b>CBRE / JLL / Colliers 類顧問</b><br><span class="note">不動產與工作場域顧問</span></td><td>以 AI leasing、tech gateway、rightsizing、flex portfolio 與 tenant demand 定義企業辦公策略問題。</td><td>高：可能先把需求定義成資產效率、風險控管與員工體驗，家具商若晚進場只剩報價角色。</td><td>用「不確定環境下仍可分階段改善」切入，準備 baseline upgrade、priority zones、phase 2 expansion。</td><td>建立 flex workspace 情境包：配置模板、導入時程、可移動家具、租賃／採購比較、SLA 與案例照片需求。</td></tr><tr><td><b>Steelcase</b><br><span class="note">國際辦公家具與科技整合平台</span></td><td>InfoComm 2026 展示 hybrid collaboration solutions，強調 furniture and technology function together，並連結多個科技夥伴。</td><td>高：會把產品、研究、數位工具、科技夥伴與顧問語言包裝為一體化方案。</td><td>從員工體驗、混合會議效率、專注與協作平衡回答「為何要更新辦公室」。</td><td>補工作場域研究語言、會議科技配置、展廳測試腳本、BIM/Revit 素材與健康辦公證據。</td></tr><tr><td><b>MillerKnoll / Herman Miller</b><br><span class="note">國際辦公家具／經典椅基準</span></td><td>Embody / Aeron 持續在辦公椅榜單與設計媒體中作為高端人體工學與經典產品基準。</td><td>高：明星產品會成為客戶比較人體工學、設計、材料、保固與高端價格帶的標準。</td><td>面對國際座椅比較，回到在地導入、整體配置、售後維運、交期、案例與空間情境。</td><td>補高端座椅證據頁：人體工學、材料、保固、維修、環境資料、設計故事與替代選項。</td></tr><tr><td><b>Secretlab</b><br><span class="note">Prosumer / gaming-to-work chair</span></td><td>Atlas 被 PC Gamer、NY Post、Tom's Hardware、GamesRadar 以工作與遊戲兼用、office-friendly chair 角度討論。</td><td>中高：不一定直接取代企業採購，但會改變終端使用者對外型、舒適、價格與品牌的期待。</td><td>客戶若用消費級椅款比價，應把議題拉回企業大量導入、保固、維修、坐姿訓練、空間整合與長期總成本。</td><td>建立 prosumer vs B2B office chair 比較表，含保固、維修、零件、材質、交期、企業採購與使用者教育。</td></tr><tr><td><b>Haworth / Vitra / Okamura / Kokuyo</b><br><span class="note">設計品牌與亞洲競品</span></td><td>設計品牌持續用材料、經典重製、沉浸展示與細節體驗包裝產品價值；亞洲品牌則值得追蹤桌面電源、線材、系統桌與區域通路。</td><td>中：提高客戶對展示中心、材料故事、設計來源、產品證據與細節體驗的期待。</td><td>帶客戶參觀時可從「空間如何承載品牌、工作方式與員工體驗」切入，而非只介紹單品。</td><td>整理 NEXt-WORK 場景腳本、產品證據卡、桌面電源／線材管理展示與本土競品追蹤清單。</td></tr><tr><td><b>本土競品</b><br><span class="note">台灣標案、展廳與通路競爭</span></td><td>今日未見足夠高相關公開重大訊號；仍需看標案、展廳活動、價格促銷、交期、社群聲量與地區專案案例。</td><td>追蹤：公開新聞不足以判斷真實競爭強度，需要與一線情報合併。</td><td>回報客戶提及競品的原因：價格、交期、品牌、設計、服務、既有關係或產品規格。</td><td>建立每週本土競品情蒐欄位：客戶名稱、競品、案型、預算、關鍵差異、失單／贏單原因。</td></tr></tbody></table></div></article></section>
+<section class="grid" style="margin-top:14px"><article class="card span-7"><div class="card-head"><div><h2>Latest Signals</h2><div class="caption">高相關訊號，而非平均羅列新聞</div></div><span class="pill green">Market / competitor</span></div><div class="body"><table><thead><tr><th>訊號</th><th>為什麼值得看</th><th>對家具產業的可能意涵</th></tr></thead><tbody><tr><td>CBRE：AI 企業自 2019 年起在 San Francisco 與 Silicon Valley 合計租賃約 21 million sq ft。</td><td>AI 不是只影響數位工具，也開始影響辦公租賃、人才聚集與高價值工作場景。</td><td>面向科技、研發、總部型客戶時，可把辦公室定位成招募、協作、速度與文化載體。</td></tr><tr><td>CBRE：五大美國 tech gateway 約 8.1 million sq ft AI tenants currently in the market。</td><td>顯示部分市場有擴張型需求，但集中在特定產業與城市。</td><td>不宜泛化成所有市場復甦；應轉化成「高成長客戶需要什麼辦公場景」的討論。</td></tr><tr><td>CBRE New Jersey：Q2 leasing 反彈但仍低於五年平均，平均 deal size 降至約 11,000 sq ft。</td><td>企業需求仍在，但規模、節奏與風險偏好已改變。</td><td>提案應連到分期導入、低干擾改造、重配能力與可被財務理解的使用價值。</td></tr><tr><td>Steelcase：InfoComm 2026 展示混合協作解決方案，強調家具與科技一起運作。</td><td>混合工作已從「有沒有視訊設備」進入「空間、家具、科技是否整合」的競爭。</td><td>會議室與協作區需要可展示、可測試、可維運的方案包，並同時面向 HR、IT、總務與主管層。</td></tr><tr><td>Secretlab Atlas：多家媒體近期以 office-friendly task chair 角度評測。</td><td>非傳統辦公家具品牌正在進入工作椅比較語境，尤其影響年輕主管、科技業與居家辦公族群認知。</td><td>營業需要準備「消費級椅款 vs 企業辦公椅」的理性比較，而不是只談品牌或單價。</td></tr><tr><td>JLL：flexible office space 被視為企業 portfolio strategy 的一部分。</td><td>Flex 不是純短租，而是企業因應不確定性、成長節奏與據點彈性的工具。</td><td>FaaS、租賃、可移動家具、共享座位與展廳情境可被包裝成企業風險控管方案。</td></tr></tbody></table></div></article><article class="card span-5"><div class="card-head"><div><h2>Audience View</h2><div class="caption">分角色轉換成可用資訊</div></div><span class="pill">Reader lens</span></div><div class="body"><div class="audience-grid"><div class="audience"><span class="tag">經營管理層</span><h3>引導式判讀</h3><p>這是否代表家具產業的競爭重心，正在從「產品與價格」轉向「辦公資產效率、混合協作、人才體驗、彈性投資與證據化提案」？值得進一步確認的是：哪些客戶旅程節點需要更早進場？</p></div><div class="audience"><span class="tag">營業主管</span><h3>客戶切入</h3><p>可用 AI 公司租賃、rightsizing、混合會議、居家／辦公椅比較與 flex portfolio 切入。客戶若只比單價，應回到企業導入、維運、保固、交期與整體配置。</p></div><div class="audience"><span class="tag">幕僚主管</span><h3>素材缺口</h3><p>優先補 flex workspace 場景包、混合協作會議室方案、prosumer vs B2B 座椅比較、高端人體工學椅證據頁、NEXt-WORK 場景腳本與 ESG 資料邊界。</p></div></div></div></article></section>
+<section class="grid" style="margin-top:14px"><article class="card span-8"><div class="card-head"><div><h2>Implication for Aurora / Da Zhen</h2><div class="caption">外部訊號轉成產品、行銷、業務、展廳與 ESG 採購議題</div></div><span class="pill violet">Implication</span></div><div class="body"><table><thead><tr><th>議題</th><th>可能影響</th><th>需要補強的材料</th></tr></thead><tbody><tr><td>AI / tech 客戶的辦公室需求重新被定義</td><td>高成長產業可能把辦公室視為人才密度、跨域協作與文化建立的工具。</td><td>科技客戶場景包：研發協作、專注區、敏捷會議、主管討論區、混合會議與訪客展示。</td></tr><tr><td>需求分化，不是不投資</td><td>客戶可能更在意投資優先順序、分期導入與風險控管，而不是一次性完整採購。</td><td>baseline / priority / expansion 三階段提案頁、預算分期與空間效益說明。</td></tr><tr><td>混合協作變成家具＋科技共同議題</td><td>會議品質、設備可用性、視線、聲學、桌面電源、攝影角度與家具配置會一起被評估。</td><td>混合會議室標準包、IT／總務共用檢核表、展廳測試腳本、夥伴設備整合清單。</td></tr><tr><td>新型座椅競品改變價格錨點</td><td>prosumer 椅品牌讓使用者更容易用網路評測建立偏好，企業採購需回應更多前置比較。</td><td>座椅比較表：人體工學、維修、零件、材質、保固、企業批量導入、試坐與使用者教育。</td></tr><tr><td>展廳變成證據系統</td><td>客戶不只看產品，也看場景是否能解釋工作方式、管理問題、員工體驗與導入可行性。</td><td>NEXt-WORK 導覽腳本、場景目的、材料與健康證據、可拍攝素材與客戶問題清單。</td></tr><tr><td>ESG 主張需更嚴謹</td><td>永續語言會被客戶期待，但沒有來源的碳排、回收率、WELL 對應不能作為銷售主張。</td><td>材料比例、第三方認證、維修延壽、回收流程、供應商文件與待確認欄位。</td></tr></tbody></table></div></article><article class="card span-4"><div class="card-head"><div><h2>Action / Follow-up</h2><div class="caption">營業與幕僚可執行；經營管理層為討論題</div></div><span class="pill green">Next moves</span></div><div class="body"><table><thead><tr><th>優先級</th><th>角色</th><th>事項</th></tr></thead><tbody><tr><td>高</td><td>幕僚</td><td>建立「AI / tech 客戶辦公場景包」：研發協作、混合會議、專注區、訪客展示與人才體驗。</td></tr><tr><td>高</td><td>營業</td><td>整理三組問答：需求不確定、預算分期、為何仍需升級辦公室。</td></tr><tr><td>高</td><td>產品／行銷</td><td>補 prosumer vs B2B office chair 比較表，避免只用單價比較。</td></tr><tr><td>中</td><td>產品／展廳</td><td>盤點混合會議室與共享座位所需的桌面電源、線材管理、聲學、攝影角度與維護責任。</td></tr><tr><td>中</td><td>展廳／內容</td><td>把展示中心每個場景對應到一個客戶管理問題與一組可驗證素材。</td></tr><tr><td>中</td><td>經營管理層</td><td>討論題：下季內容資產優先順序是否應放在 AI / tech 客戶、混合協作、flex workspace 與座椅比較？</td></tr></tbody></table></div></article></section>
+<section class="grid" style="margin-top:14px"><article class="card span-8"><div class="card-head"><div><h2>Sources and Assumptions</h2><div class="caption">區分已知事實、合理推論與待確認</div></div><span class="pill gray">Sources</span></div><div class="body"><table><thead><tr><th>來源</th><th>日期</th><th>用於本報告的事實</th><th>可信度／限制</th></tr></thead><tbody><tr><td><a href="https://www.cbre.com/insights/reports/2026-tech-gateway-office-markets">CBRE / 2026 Tech Gateway Office Markets</a></td><td>2026-05-11</td><td>AI 企業自 2019 年起在 San Francisco 與 Silicon Valley 合計租賃約 21 million sq ft；五大美國 tech gateway 約 8.1 million sq ft AI tenants currently in the market。</td><td>高；用於 AI / tech 對辦公租賃需求的事實基礎，不直接等同台灣市場。</td></tr><tr><td><a href="https://www.cbre.com/press-releases/ai-boom-drives-office-leasing-surge-in-san-francisco-bay-area">CBRE / AI Boom Drives Office Leasing Surge in San Francisco Bay Area</a></td><td>2026-05-12</td><td>AI boom 推動 San Francisco Bay Area office leasing，作為 AI 與辦公需求連動的補充訊號。</td><td>高；地域集中，需避免泛化。</td></tr><tr><td><a href="https://www.cbre.com/insights/figures/new-jersey-office-figures-q2-2026">CBRE / New Jersey Office Figures Q2 2026</a></td><td>2026-07-08</td><td>Q2 leasing 932,000 sq ft、較 Q1 反彈但低於五年平均 21%；需求偏小型，平均 deal size 降至約 11,000 sq ft。</td><td>高；用於 rightsizing 與 flexibility 訊號，不直接推論台灣需求量。</td></tr><tr><td><a href="https://www.steelcase.com/press-releases/steelcase-debuts-at-infocomm-2026-with-hybrid-collaboration-solutions-designed-to-build-human-connection/">Steelcase / InfoComm 2026 Hybrid Collaboration Solutions</a></td><td>2026-06-17</td><td>Steelcase 展示家具與科技整合的 hybrid collaboration solutions，並提及 Microsoft、Logitech、Zoom、Crestron、VergeSense、Spaceti 等夥伴。</td><td>高；競品官方來源，適合判讀競品定位與解決方案語言。</td></tr><tr><td><a href="https://www.pcgamer.com/hardware/gaming-chairs/secretlab-atlas-review/">PC Gamer / Secretlab Atlas review</a></td><td>2026-07-17</td><td>Secretlab Atlas 被評測為偏 office-friendly 的 task chair，與 Titan Evo 等產品比較。</td><td>中；媒體評測不是企業採購標準，但會影響使用者認知。</td></tr><tr><td><a href="https://nypost.com/2026/07/14/shopping/secretlab-atlas-ergonomic-desk-chair-is-built-for-work-and-gaming/">NY Post / Secretlab ATLAS ergonomic desk chair</a></td><td>2026-07-14</td><td>Secretlab Atlas 被描述為適合 work and gaming 的 ergonomic desk chair。</td><td>中；消費媒體來源，用於掌握 prosumer 椅款聲量。</td></tr><tr><td><a href="https://www.tomshardware.com/peripherals/gaming-chairs/secretlab-atlas-review">Tom's Hardware / Secretlab Atlas review</a></td><td>2026-06-10</td><td>Secretlab Atlas 被評為更 streamlined、office-friendly、價格低於部分 Secretlab 既有產品。</td><td>中；用於補充 prosumer chair 進入辦公語境。</td></tr><tr><td><a href="https://www.jll.com/en-ca/insights/the-flexible-office-space-imperative">JLL / The flexible office space imperative</a></td><td>2026-04-14</td><td>Flexible office space 被討論為企業 portfolio strategy 的一部分，AI 與不確定性皆為需求背景。</td><td>中高；用於 flex strategy 訊號，非台灣單一市場數據。</td></tr></tbody></table></div></article><article class="card span-4"><div class="card-head"><div><h2>事實／推論／待確認</h2><div class="caption">避免過度宣稱</div></div><span class="pill red">Guardrails</span></div><div class="body"><ul class="insight-list"><li><span class="tag">已知事實</span><div><p class="copy">CBRE、Steelcase、PC Gamer、NY Post、Tom's Hardware、JLL 等公開來源揭露的日期、數字、產品定位與競品動作。</p></div></li><li><span class="tag">合理推論</span><div><p class="copy">AI / tech leasing、rightsizing、hybrid collaboration 與 prosumer chair 聲量可能影響台灣 B2B 客戶的採購語言與比較框架。</p></div></li><li><span class="tag">待確認</span><div><p class="copy">台灣本土競品實際價格、標案進度、客戶失單原因、各品牌市占、Secretlab Atlas 對企業採購的真實影響、台灣 ESG 採購文件需求。</p></div></li></ul></div></article></section>
+</main>
+<footer class="wrap">更新時間：2026-07-20 08:30 Asia/Taipei｜展示層：GitHub Pages｜更新規則：一般日產生日報；每週一加上週週報；每月 23 日加月度策略預判。</footer>
 </body>
 </html>
